@@ -43,7 +43,8 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <ul>
         @foreach($tampos as $tampo)
-        <li><img onclick="tampoAtual(`{{$tampo->titulo}}`, ` {{$tampo->descricao}}`,` {{$tampo->imagem}}`,` {{$tampo->altura}}`,` {{$tampo->largura}}`,` {{$tampo->comprimento}}`)" style="width: 200px;" src="img/produtos/{{$tampo->imagem}}" alt="{{$tampo->titulo}}"></li>
+        <li><img class="img-fluid" onclick="tampoAtual(`{{$tampo->titulo}}`, ` {{$tampo->descricao}}`,` {{$tampo->imagem}}`,` {{$tampo->altura}}`,` {{$tampo->largura}}`,` {{$tampo->comprimento}}`)"  src="img/produtos/{{$tampo->imagem}}" alt="{{$tampo->titulo}}"></li>
+        <hr>
         @endforeach
     </ul>
 </div>
@@ -52,7 +53,8 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <ul>
         @foreach($vidros as $vidro)
-        <li><img id="{{$vidro->id}}" style="width: 200px;" src="img/produtos/{{$vidro->imagem}}" alt="{{$vidro->titulo}}"></li>
+        <li><img class="img-fluid" id="{{$vidro->id}}" style="max-width: 200px;" src="img/produtos/{{$vidro->imagem}}" alt="{{$vidro->titulo}}"></li>
+        <hr>
         @endforeach
     </ul>
 </div>
@@ -61,8 +63,9 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <ul>
         @foreach($bases as $base)
-        <li><img onclick="baseAtual(`{{$base->titulo}}`, ` {{$base->descricao}}`,` {{$base->imagem}}`,` {{$base->altura}}`,` {{$base->largura}}`,` {{$base->comprimento}}`)" style="width: 200px;" src="img/produtos/{{$base->imagem}}" alt="{{$base->titulo}}">
+        <li><img class="img-fluid" onclick="baseAtual(`{{$base->titulo}}`, ` {{$base->descricao}}`,` {{$base->imagem}}`,` {{$base->altura}}`,` {{$base->largura}}`,` {{$base->comprimento}}`)"  src="img/produtos/{{$base->imagem}}" alt="{{$base->titulo}}">
         </li>
+        <hr>
         @endforeach
     </ul>
 </div>

@@ -3,19 +3,25 @@
     document.getElementById("list-tampos").style.width = "0";
     document.getElementById("list-vidros").style.width = "0";
     document.getElementById("list-bases").style.width = "0";
+    document.getElementById("menu").style.width = "0";
   }
 
-  var btn  = document.getElementById('opentampos');
-  btn.addEventListener('click', function(){
+  var tbtn  = document.getElementById('opentampos');
+    tbtn.addEventListener('click', function(){
     document.getElementById("list-tampos").style.width = "250px";
   })
 
-  var btn  = document.getElementById('openvidros');
-  btn.addEventListener('click', function(){
+  var vbtn  = document.getElementById('openvidros');
+    vbtn.addEventListener('click', function(){
     document.getElementById("list-vidros").style.width = "250px";
   })
 
-  var btn  = document.getElementById('openbases');
-  btn.addEventListener('click', function(){
+  var bbtn  = document.getElementById('openbases');
+    bbtn.addEventListener('click', function(){
     document.getElementById("list-bases").style.width = "250px";
   })
+
+  function abrirmenu(){
+    document.getElementById("menu").style.width = "250px";
+
+  }

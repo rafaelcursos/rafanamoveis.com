@@ -3,9 +3,11 @@
 @section('content')
 <div class="row">
     <div class="col-lg-8">
-        <h3>Titulo</h3>
-        <img id="t-img" src="https://via.placeholder.com/1280x300?text=img-tampo" alt="tampo" class="img-fluid" />
-        <img id="b-img" src="https://via.placeholder.com/1280x300?text=img-base" alt="base" class="img-fluid" />
+        <h3>Monte Seu Móvel!</h3>
+        <h4 class="m-0" id="c-t-titulo">Escolha o Tampo</h4><br>
+        <h4 class="m-0" id="c-b-titulo">Escolha a Base</h4>
+        <img id="c-t-img" src="https://via.placeholder.com/1280x300?text=img-tampo" alt="tampo" class="img-fluid" />
+        <img id="c-b-img" src="https://via.placeholder.com/1280x300?text=img-base" alt="base" class="img-fluid" />
     </div>
     <div class="col-lg-4">
         <div class="row">
