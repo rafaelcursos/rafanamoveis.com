@@ -12,6 +12,9 @@
 #t-img{
     transform: translateY(7px);
 }
+#c-t-img{
+    transform: translateY(7px);  
+}
 .btn{
     background-color: rgb(31, 113, 86);
     border: 0;
@@ -41,7 +44,20 @@ footer{
 main{
     margin-bottom: 100px;
 }
+.c-cadeira{
+    transform: translateY(-60%);
+}
 
+@media(max-width: 993px){
+    .area-cadeira{
+        transform: translateY(-60%);
+    }
+}
+@media(max-width:767px){
+    .area-cadeira{
+        transform: translateY(-30%);
+    }
+}
 @media(max-width: 600px){
     .contato-rodape{
         display: none;
