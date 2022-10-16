@@ -4,13 +4,12 @@ primeiro cadastrar o produto
 
 ###############################################################################################
                                                                                               #
-Produtos   => id  |nome_produto, |tipo_produto, |imagem_produto |descricao, |                 #
+Produtos   => id  |nome |tipo |imagem |descricao, | preco  |cor |tecido |tamanho              #
+Tipos      => id  |tipo |                                                                     #
 ------------------+--------------+--------------+---------------+-----------+-----------------#
-Cores      => id  |nome_cor      |nome_produto, |imagem_cor     |           |                 #
+Cores      => id  |cor       |imagem    |           |                                         #
 ______________________________________________________________________________________________#
-Tecidos    => id  |nome_tecido   |nome_produto  |imagem_tecido  |           |                 #
+Tecidos    => id  |tecido   |imagem  |           |                                            #
 ______________________________________________________________________________________________#
-Tamanhos   => id  |nome_produto  |tamanho       |altura,        |largura    |comprimento      #
-______________________________________________________________________________________________#
-Precos     => id  |nome_produto  |tamanho       |preco          |                             #
+Tamanhos   => id  |tamanho  |altura |largura |comprimento                                     #
 ______________________________________________________________________________________________#

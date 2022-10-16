@@ -16,7 +16,6 @@ class CreateTamanhosTable extends Migration
         Schema::create('tamanhos', function (Blueprint $table) {
             $table->id();
             $table->string('tamanho');
-            $table->string('nome_produto');
             $table->float('altura');
             $table->float('largura');
             $table->float('comprimento');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePrecosTable extends Migration
+class CreateTiposTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreatePrecosTable extends Migration
      */
     public function up()
     {
-        Schema::create('precos', function (Blueprint $table) {
+        Schema::create('tipos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome_produto');
-            $table->string('tamanho');
-            $table->string('preco');
+            $table->string('tipo');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreatePrecosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('precos');
+        Schema::dropIfExists('tipos');
     }
 }

@@ -59,7 +59,7 @@ class ProductController extends Controller
 
         $produto->save();
 
-        return redirect('home')->with('msg', 'Produto criado com sicesso!');
+        return redirect('home')->with('msg', 'Produto criado com sucesso!');
         
     }
 
