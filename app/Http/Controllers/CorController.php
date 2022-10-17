@@ -3,19 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Cor;
-
+use App\Models\Corproduto;
+use App\Models\Produto;
 
 class CorController extends Controller
 {
     public function index()
     {
-        return view('novacor');
+        $produtos = Produto::all();
+        return view('novacor', ['produtos' => $produtos]);
     }
 
     public function insert(Request $request)
     {
-        $cor = new Cor();
+        $cor = new Corproduto();
         $cor->cor = $request->cor;
         if ($request->hasfile('imagem') && $request->file('imagem')->isvalid()) {
             $imagem = $request->imagem;
@@ -28,7 +29,7 @@ class CorController extends Controller
 
         $cor->save();
 
-        return redirect('home')->with('msg', 'Nova cor cadastrada com sucesso!');
+        return redirect('novacor')->with('msg', 'Nova cor cadastrada com sucesso!');
 
     }
 }

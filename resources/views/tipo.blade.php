@@ -15,7 +15,8 @@
                     @endif
                     <div class="row">
 
-                        <h3>Inserir Novo Produto</h3>
+                        <h3>Inserir Novo Tipo de Produto</h3>
+                        <span>Ex: Base, Tampo, Aparador, ...</span>
                         <div class="col-md-6 m-auto">
                             @if (session()->has('msg'))
                             <div class="alert alert-success">
@@ -23,24 +24,14 @@
                             </div>
                             @endif
 
-                            <form action="/novotecido" method="post" enctype="multipart/form-data">
+                            <form action="/novotipo" method="post">
                                 @csrf
+                                
                                 <div class="form-group">
-                                    <label for="produto" class="form-label">Nome do Produto:</label><br>
-                                    <select class="form-select" name="produto" id="produto">
-                                        @foreach($produtos as $produto)
-                                        <option value="{{$produto->nome}}">{{$produto->nome}}</option>
-                                        @endforeach
-                                    </select>
+                                    <label for="tipo" class="form-label">Tipo de Produto:</label>
+                                    <input type="text" name="tipo" id="tipo" class="form-control">
                                 </div>
-                                <div class="form-group">
-                                    <label for="tecido" class="form-label">Tecido do Produto:</label><br>
-                                    <input type="text" name="tecido" id="tecido" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="imagem" class="form-label">Imagem do Tecido:</label><br>
-                                    <input type="file" name="imagem" id="imagem" class="form-control-file">
-                                </div><br>
+                                
                                 <input class="btn btn-primary" type="submit" value="Cadastrar">
                             </form>
                         </div>

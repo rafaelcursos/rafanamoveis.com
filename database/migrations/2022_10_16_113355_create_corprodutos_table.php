@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCoresTable extends Migration
+class CreateCorprodutosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('cores', function (Blueprint $table) {
+        Schema::create('corprodutos', function (Blueprint $table) {
             $table->id();
             $table->string('cor');
             $table->string('imagem');
@@ -28,6 +28,6 @@ class CreateCoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cores');
+        Schema::dropIfExists('corprodutos');
     }
 }

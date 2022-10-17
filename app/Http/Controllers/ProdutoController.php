@@ -4,12 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produto;
-
+use App\Models\Tipo;
 
 class ProdutoController extends Controller
 {
     public function index(){
-        return view('novoproduto');
+
+        $tipos = Tipo::all();
+        return view('novoproduto',['tipos' => $tipos]);
+    }
+
+    public function pagina1(){
+        $tampos = Produto::all();
+        $vidros = Produto::all();
+        $bases = Produto::all();
+        return view('welcome', ['tampos' => $tampos, 'vidros' => $vidros, 'bases' => $bases, 'pagina' => 'pagina1']);
+    }
+    public function pagina2(){
+        $tampos = Produto::all();
+        $vidros = Produto::all();
+        $bases = Produto::all();
+        return view('welcome', ['tampos' => $tampos, 'vidros' => $vidros, 'bases' => $bases, 'pagina' => 'pagina2']);
     }
 
     public function insert(Request $request){
@@ -27,13 +42,15 @@ class ProdutoController extends Controller
         }
         $produto->descricao = $request->descricao;
         $produto->preco = $request->preco;
-        $produto->cor = $request->cor;
-        $produto->tecido = $request->tecido;
-        $produto->tamanho = $request->tamanho;
 
         $produto->save();
 
-        return redirect('home')->with('msg', 'Produto criado com sucesso!');
+        return redirect('novoproduto')->with('msg', 'Produto criado com sucesso!');
         
+    }
+
+    public function update($id){
+        Produto::findOrfail($id);
+        return redirect('home')->with('msg', 'Produto deletado com sucesso!');
     }
 }

@@ -23,24 +23,28 @@
                             </div>
                             @endif
 
-                            <form action="/insert" method="post" enctype="multipart/form-data">
+                            <form action="/novoproduto" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="produto" class="form-label">Tipo de Produto:</label>
-                                    <select class="form-select" name="produto" id="produto">
-                                        <option value="base" selected>Base</option>
-                                        <option value="tampo">Tampo</option>
-                                        <option value="vidro">Vidro</option>
+                                    <label for="nome" class="form-label">Nome do Produto:</label>
+                                    <input type="text" name="nome" id="nome" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tipo" class="form-label">Tipo de Produto:</label><br>
+                                    @if($tipos)
+                                    <select class="form-select" name="tipo" id="tipo">
+                                        @foreach($tipos as $tipo)
+                                        <option value="{{$tipo->tipo}}">{{$tipo->tipo}}</option>
+                                        @endforeach
                                     </select>
+                                    @else
+                                        <span>Por favor Cadastre um tipo <a href="/novotipo">clicando aqui</a></span>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="imagem" class="form-label">Imagem do Produto:</label><br>
                                     <input type="file" name="imagem" id="imagem" class="form-control-file">
                                 </div><br>
-                                <div class="form-group">
-                                    <label for="titulo" class="form-label">Título:</label>
-                                    <input type="text" name="titulo" id="titulo" class="form-control">
-                                </div>
                                 <div class="form-group">
                                     <label for="descricao" class="form-label">Descrição:</label>
                                     <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="10"></textarea>
@@ -49,18 +53,7 @@
                                     <label for="preco" class="form-label">Preço:</label>
                                     <input type="number" name="preco" id="preco" class="form-control">
                                 </div>
-                                <div class="form-group">
-                                    <label for="altura" class="form-label">Altura:</label>
-                                    <input type="number" name="altura" id="altura" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="largura" class="form-label">Largura:</label>
-                                    <input type="number" name="largura" id="largura" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="comprimento" class="form-label">Comprimento:</label>
-                                    <input type="number" name="comprimento" id="comprimento" class="form-control">
-                                </div><br>
+                                <br>
                                 <input class="btn btn-primary" type="submit" value="Cadastrar">
                             </form>
                         </div>

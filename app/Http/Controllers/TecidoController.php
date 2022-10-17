@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produto;
 use Illuminate\Http\Request;
 use App\Models\Tecido;
 
@@ -9,13 +10,16 @@ class TecidoController extends Controller
 {
     public function index()
     {
-        return view('novotecido');
+        $produtos = Produto::all();
+
+        return view('novotecido', ['produtos' => $produtos]);
     }
 
     public function insert(Request $request)
     {
         $tecido = new Tecido();
 
+        $tecido->produto = $request->produto;
         $tecido->tecido = $request->tecido;
         if ($request->hasfile('imagem') && $request->file('imagem')->isvalid()) {
             $imagem = $request->imagem;
@@ -28,7 +32,7 @@ class TecidoController extends Controller
 
         $tecido->save();
 
-        return redirect('home')->with('msg', 'Tecido cadastrado com sucesso!');
+        return redirect('novotecido')->with('msg', 'Novo tecido cadastrado para este produto!');
 
     }
 }

@@ -53,7 +53,7 @@
         <div class="container-fluid">
             <div class="row text-center rodape">
                 <div class="col-4">
-                    @if($pagina == 'cadeiras')
+                    @if($pagina == 'pagina2')
                     <a href="/" class="btn btn-primary">Voltar</a>
                     @endif
                 </div>
@@ -61,8 +61,8 @@
                     &copy;<span>rafanamoveis.com.br</span>
                 </div>
                 <div class="col-4">
-                    @if($pagina == 'montemovel')
-                    <a href="/cadeiras" class="btn btn-primary">Proximo</a>
+                    @if($pagina == 'pagina1')
+                    <a href="/pagina2" class="btn btn-primary">Proximo</a>
                     @endif
                 </div>
             </div>
