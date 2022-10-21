@@ -54,7 +54,9 @@
             <div class="row text-center rodape">
                 <div class="col-4">
                     @if($pagina == 'pagina2')
-                    <a href="/" class="btn btn-primary">Voltar</a>
+                    <a href="/pagina1/{{$produto->id}}" class="btn btn-success">Voltar</a>
+                    @else
+                    <a href="/" class="btn btn-success">Começar de Novo</a>
                     @endif
                 </div>
                 <div class="col-4 contato-rodape">
@@ -62,7 +64,7 @@
                 </div>
                 <div class="col-4">
                     @if($pagina == 'pagina1')
-                    <a href="/pagina2" class="btn btn-primary">Proximo</a>
+                    <a href="/pagina2/{{$produto->id}}" class="btn btn-success">Proximo</a>
                     @endif
                 </div>
             </div>

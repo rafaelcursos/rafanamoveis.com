@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Tamanho extends Model
 {
     use HasFactory;
+
+    public function produtos(){
+        return $this->belongsToMany(Produto::class);
+    }
 }

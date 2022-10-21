@@ -10,14 +10,13 @@ class TamanhoController extends Controller
 {
     public function index(){
         $produtos = Produto::all();
-
         return view('novotamanho', ['produtos' => $produtos]);
     }
 
     public function insert(Request $request){
         $tamanho = new Tamanho();
 
-        $tamanho->produto = $request->produto;
+        $tamanho->produto  = $request->produto;
         $tamanho->altura  = $request->altura;
         $tamanho->largura = $request->largura;
         $tamanho->comprimento = $request->comprimento;

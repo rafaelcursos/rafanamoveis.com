@@ -21,15 +21,14 @@ class TecidoController extends Controller
 
         $tecido->produto = $request->produto;
         $tecido->tecido = $request->tecido;
-        if ($request->hasfile('imagem') && $request->file('imagem')->isvalid()) {
+        if($request->hasfile('imagem') && $request->file('imagem')->isvalid()){
             $imagem = $request->imagem;
             $extensao = $imagem->extension();
-            $imagemNome = md5($imagem->getClientOriginalName() . strtotime('now')) . '.' . $extensao;
+            $imagemNome = md5($imagem->getClientOriginalName() . strtotime('now')). '.' . $extensao;
             $imagem->move(public_path('img/tecidos'), $imagemNome);
 
             $tecido->imagem = $imagemNome;
         }
-
         $tecido->save();
 
         return redirect('novotecido')->with('msg', 'Novo tecido cadastrado para este produto!');

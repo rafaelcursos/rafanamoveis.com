@@ -15,6 +15,7 @@ class CreateCorprodutosTable extends Migration
     {
         Schema::create('corprodutos', function (Blueprint $table) {
             $table->id();
+            $table->string('produto');
             $table->string('cor');
             $table->string('imagem');
             $table->timestamps();
