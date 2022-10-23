@@ -59,19 +59,6 @@
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Itens Padrão
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/novalinha">Nova Linha de Produto</a></li>
-                                <li><a class="dropdown-item" href="/novotipo">Tipo de Produto</a></li>
-                                <li><a class="dropdown-item" href="/novacor">Nova Cor</a></li>
-                                <li><a class="dropdown-item" href="/novotamanho">Inserir Medidas</a></li>
-                                <li><a class="dropdown-item" href="/novotecido">Inserir Tecido</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Cadastrar Produtos
                             </a>
                             <ul class="dropdown-menu">
@@ -79,8 +66,29 @@
                                 <li><a class="dropdown-item" href="/novoproduto">Novo Item de um Produto</a></li>
                             </ul>
                         </li>
-
                         
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Itens Padrão
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/novalinha">Nova Linha de Produto</a></li>
+                                <li><a class="dropdown-item" href="/novotipo">Tipo de Produto</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Características
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/novacor">Nova Cor</a></li>
+                                <li><a class="dropdown-item" href="/novotamanho">Inserir Medidas</a></li>
+                                <li><a class="dropdown-item" href="/novotecido">Inserir Tecido</a></li>
+                            </ul>
+                        </li>
+
+                       
                         <li class="nav-item"><a class="nav-link" href="/register">Inserir Novo Usuário</a></li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -26,10 +26,7 @@ class HomeController extends Controller
     {
         $produtos = Produto::all();
 
-        return view('home', ['produtos' => $produtos]);
+        return view('/home', ['produtos' => $produtos]);
     }
 
-    public function registro(){
-        return view('auth/register');
-    }
 }

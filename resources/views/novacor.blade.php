@@ -4,13 +4,13 @@
 
 <div class="row">
 
-    <h3>Inserir Nova Cor</h3>
     <div class="col-md-6 m-auto">
         @if (session()->has('msg'))
         <div class="alert alert-success">
             {{ session('msg') }}
         </div>
         @endif
+        <h3>Inserir Nova Cor</h3>
 
         <form action="/novacor" method="post" enctype="multipart/form-data">
             @csrf

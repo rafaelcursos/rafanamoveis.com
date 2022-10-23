@@ -52,7 +52,7 @@
                     <div style="min-height: 300px;"  class="card">
                         <img style="max-width:80%; margin:auto; padding: 1rem 0;" src="img/vitrine/{{$p->imagem}}" class="card-img-top" alt="{{$p->nome}}">
                         <div class="card-body">
-                            <h5 class="card-title">{{$p->nome}}</h5>
+                            <h5 class="card-title">{{$p->produto}}</h5>
                             <p class="card-text">{{$p->descricao}}</p>
                             <a href="pagina1/{{$p->linha}}" class="btn btn-primary">Personalize este produto</a>
                         </div>

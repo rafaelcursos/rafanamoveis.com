@@ -8,21 +8,27 @@ use Illuminate\Http\Request;
 
 class TamanhoController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $produtos = Produto::all();
-        return view('novotamanho', ['produtos' => $produtos]);
+        return view('/novotamanho', ['produtos' => $produtos]);
     }
 
-    public function insert(Request $request){
+    public function insert(Request $request)
+    {
+        $produto = Produto::find($request->id);
+
         $tamanho = new Tamanho();
 
-        $tamanho->produto  = $request->produto;
+        $tamanho->produto  = $produto->nome;
         $tamanho->altura  = $request->altura;
         $tamanho->largura = $request->largura;
         $tamanho->comprimento = $request->comprimento;
         $tamanho->save();
 
-        return redirect('novotamanho')->with('msg', 'Tamanho cadastrado com sucesso!');
+        $tamanhoId = $tamanho->id;
+        $produto->tamanhos()->attach($tamanhoId);
 
+        return redirect('/novotamanho')->with('msg', 'Tamanho cadastrado com sucesso!');
     }
 }

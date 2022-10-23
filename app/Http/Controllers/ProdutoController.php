@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Corproduto;
+
 use App\Models\Linha;
 use Illuminate\Http\Request;
 use App\Models\Produto;
-use App\Models\Tamanho;
-use App\Models\Tecido;
 use App\Models\Tipo;
 use App\Models\Vitrine;
 
@@ -45,12 +43,12 @@ class ProdutoController extends Controller
     {
         $tipos = Tipo::all();
         $linha = Linha::all();
-        return view('novoproduto', ['tipos' => $tipos,  'linha' => $linha]);
+        return view('/novoproduto', ['tipos' => $tipos,  'linha' => $linha]);
     }
 
     public function vitrine(){
         $linha = Linha::all();
-        return view('vitrineform', ['linha' => $linha]);
+        return view('/vitrineform', ['linha' => $linha]);
     }
 
     public function insertvitrine(Request $request){
@@ -71,7 +69,7 @@ class ProdutoController extends Controller
 
         $produto->save();
 
-        return redirect('novoproduto/vitrine')->with('msg', 'Produto cadastrado com sucesso!');
+        return redirect('/novoproduto/vitrine')->with('msg', 'Produto cadastrado com sucesso!');
     }
 
     //Esta é a função de inserção de um novo produto no banco de dados
@@ -95,63 +93,8 @@ class ProdutoController extends Controller
 
         $produto->save();
 
-        return redirect('novoproduto')->with('msg', 'Produto cadastrado com sucesso!');
+        return redirect('/novoproduto')->with('msg', 'Produto cadastrado com sucesso!');
     }
-
-    //################################################################################
-    //Esta função exibe a view do formulário de associação de produto e cor
-    public function associarcor()
-    {
-        $cores = Corproduto::all();
-        $produtos = Produto::all();
-        return view('associarcor', ['cores' => $cores, 'produtos' => $produtos]);
-    }
-    //Aqui acontece a inserção no banco de dados de associação de produto e cor
-    public function associarcorinsert(Request $request)
-    {
-        $produto = Produto::find($request->produto);
-        $corId = $request->cor;
-        $produto->corprodutos()->attach($corId);
-        return redirect('/associar/cor')->with('msg', 'Cor associada ao produto');
-    }
-
-        //################################################################################
-    //Esta função exibe a view do formulário de associação de produto e cor
-    public function associartecido()
-    {
-        $tecidos = Tecido::all();
-        $produtos = Produto::all();
-        return view('associartecido', ['tecidos' => $tecidos, 'produtos' => $produtos]);
-    }
-    //Aqui acontece a inserção no banco de dados de associação de produto e cor
-    public function associartecidoinsert(Request $request)
-    {
-        $produto = Produto::find($request->produto);
-        $tecidoId = $request->tecido;
-        $produto->tecidos()->attach($tecidoId);
-        return redirect('/associar/tecido')->with('msg', 'Tecido associado ao produto');
-    }
-
-    //################################################################################
-    //Esta função exibe a view do formulário de associação de produto e cor
-    public function associartamanho()
-    {
-        $tamanhos = Tecido::all();
-        $produtos = Produto::all();
-        return view('associartamanho', ['tamanhos' => $tamanhos, 'produtos' => $produtos]);
-    }
-    //Aqui acontece a inserção no banco de dados de associação de produto e cor
-    public function associartamanhoinsert(Request $request)
-    {
-        $produto = Produto::find($request->produto);
-        $tamanhoId = $request->tamanho;
-        $produto->tamanhos()->attach($tamanhoId);
-        return redirect('/associar/tamanho')->with('msg', 'tamanho associado ao produto');
-    }
-
-
-
-
 
     //#######################################################################################
     //Função que deleta um produto do banco de dados
@@ -162,6 +105,6 @@ class ProdutoController extends Controller
         $p->tecidos()->detach();
         $p->tamanhos()->detach();
         $p->delete();
-        return redirect('home')->with('msg', 'Produto deletado com sucesso!');
+        return redirect('/home')->with('msg', 'Produto deletado com sucesso!');
     }
 }

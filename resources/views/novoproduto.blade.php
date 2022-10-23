@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group">
                     <label for="tipo" class="form-label">Tipo de Produto:</label><br>
-                    <select class="form-select" name="tipo" id="tipo">
+                    <select  style="width: 100px ;"  class="form-select" name="tipo" id="tipo">
                         @foreach($tipos as $tipo)
                         <option value="{{$tipo->tipo}}">{{$tipo->tipo}}</option>
                         @endforeach
@@ -30,9 +30,9 @@
 
                 <div class="form-group">
                     <label for="linha" class="form-label">Qual é a linha deste item?:</label><br>
-                    <select class="form-select" name="linha" id="linha">
+                    <select style="width: 100px ;" class="form-select" name="linha" id="linha">
                         @foreach($linha as $l)
-                        <option value="{{$l->linha}}">{{$l->linha}}</option>
+                        <option  value="{{$l->linha}}">{{$l->linha}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -42,14 +42,14 @@
                 </div><br>
                 <div class="form-group">
                     <label for="descricao" class="form-label">Descrição:</label>
-                    <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="5"></textarea>
                 </div>
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="preco" class="form-label">Preço:</label>
-                    <input type="number" step="0.01" name="preco" id="preco" class="form-control">
+                    <input style="width: 100px ;" type="number" step="0.01" name="preco" id="preco" class="form-control">
                 </div>
                 <br>
-                <input class="btn btn-primary" type="submit" value="Cadastrar">
+                <input class="btn btn-success" type="submit" value="Cadastrar">
             </form>
         
         </div>

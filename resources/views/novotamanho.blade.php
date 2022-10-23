@@ -3,21 +3,21 @@
 @section('content')
 
 <div class="row">
-    <h3>Inserir Novo Tamanho</h3>
     <div class="col-md-6 m-auto">
         @if (session()->has('msg'))
         <div class="alert alert-success">
             {{ session('msg') }}
         </div>
         @endif
+        <h3>Inserir Novo Tamanho</h3>
 
         <form action="/novotamanho" method="post">
             @csrf
             <div class="form-group">
-                <label for="produto" class="form-label">cor do Produto:</label><br>
-                <select name="produto" id="produto">
+                <label for="id" class="form-label">cor do Produto:</label><br>
+                <select name="id" id="id">
                     @foreach($produtos as $p)
-                        <option value="{{$p->nome}}">{{$p->nome}}</option>
+                        <option value="{{$p->id}}">{{$p->nome}}</option>
                     @endforeach
                 </select>
             </div><br>

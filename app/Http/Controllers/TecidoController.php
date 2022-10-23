@@ -12,15 +12,17 @@ class TecidoController extends Controller
     {
         $produtos = Produto::all();
 
-        return view('novotecido', ['produtos' => $produtos]);
+        return view('/novotecido', ['produtos' => $produtos]);
     }
 
     public function insert(Request $request)
     {
+        $produto = Produto::find($request->id);
+
         $tecido = new Tecido();
 
-        $tecido->produto = $request->produto;
-        $tecido->tecido = $request->tecido;
+        $tecido->produto = $produto->nome;
+
         if($request->hasfile('imagem') && $request->file('imagem')->isvalid()){
             $imagem = $request->imagem;
             $extensao = $imagem->extension();
@@ -31,7 +33,10 @@ class TecidoController extends Controller
         }
         $tecido->save();
 
-        return redirect('novotecido')->with('msg', 'Novo tecido cadastrado para este produto!');
+        $tecidoId = $tecido->id;
+        $produto->tecidos()->attach($tecidoId);
+
+        return redirect('/novotecido')->with('msg', 'Novo tecido cadastrado para este produto!');
 
     }
 }
