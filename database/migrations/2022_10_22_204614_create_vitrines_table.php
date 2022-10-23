@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProdutoTamanhoTable extends Migration
+class CreateVitrinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateProdutoTamanhoTable extends Migration
      */
     public function up()
     {
-        Schema::create('produto_tamanho', function (Blueprint $table) {
-            $table->foreignId('tamanho_id')->constrained()->onDelete('CASCADE');
-            $table->foreignId('produto_id')->constrained()->onDelete('CASCADE');
+        Schema::create('vitrines', function (Blueprint $table) {
+            $table->id();
+            $table->string('produto');
+            $table->string('linha');
+            $table->string('imagem');
+            $table->text('descricao');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateProdutoTamanhoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produto_tamanho');
+        Schema::dropIfExists('vitrines');
     }
 }

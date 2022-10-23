@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Corproduto;
+use App\Models\Linha;
 use Illuminate\Http\Request;
 use App\Models\Produto;
 use App\Models\Tamanho;
 use App\Models\Tecido;
 use App\Models\Tipo;
+use App\Models\Vitrine;
 
 class ProdutoController extends Controller
 {
@@ -15,19 +17,17 @@ class ProdutoController extends Controller
     //Aqui é exibido a pagina inicial do site
     public function index()
     {
-        $produtos = Produto::all();
+        $produtos = Vitrine::all();
         return view('inicio', ['produtos' => $produtos]);
     }
 
     //##############################################################################
     //Esta função exibe a view da pagina1
-    public function pagina1($id)
+    public function pagina1($nome)
     {
-        if ($id) {
-            $produto = Produto::findOrFail($id);
-            return view('pagina1', ['produto' => $produto, 'pagina' => 'pagina1']);
-        }
-        return view('pagina1');
+        $produto = Produto::where('linha', '=', $nome)->get();
+
+        return view('pagina1', ['produto' => $produto, 'pagina' => 'pagina1']);
     }
 
     //###############################################################################
@@ -44,9 +44,34 @@ class ProdutoController extends Controller
     public function novoproduto()
     {
         $tipos = Tipo::all();
-        $tecidos = Tecido::all();
-        $tamanhos = Tamanho::all();
-        return view('novoproduto', ['tipos' => $tipos, 'tamanhos' => $tamanhos, 'tecidos' => $tecidos]);
+        $linha = Linha::all();
+        return view('novoproduto', ['tipos' => $tipos,  'linha' => $linha]);
+    }
+
+    public function vitrine(){
+        $linha = Linha::all();
+        return view('vitrineform', ['linha' => $linha]);
+    }
+
+    public function insertvitrine(Request $request){
+
+        $produto = new Vitrine();
+
+        $produto->produto = $request->produto;
+        $produto->linha = $request->linha;
+        if ($request->hasfile('imagem') && $request->file('imagem')->isvalid()) {
+            $imagem = $request->imagem;
+            $extensao = $imagem->extension();
+            $imagemNome = md5($imagem->getClientOriginalName() . strtotime('now')) . '.' . $extensao;
+            $imagem->move(public_path('img/vitrine'), $imagemNome);
+
+            $produto->imagem = $imagemNome;
+        }
+        $produto->descricao = $request->descricao;
+
+        $produto->save();
+
+        return redirect('novoproduto/vitrine')->with('msg', 'Produto cadastrado com sucesso!');
     }
 
     //Esta é a função de inserção de um novo produto no banco de dados
@@ -66,10 +91,11 @@ class ProdutoController extends Controller
         }
         $produto->descricao = $request->descricao;
         $produto->preco = $request->preco;
+        $produto->linha = $request->linha;
 
         $produto->save();
 
-        return redirect('novoproduto')->with('msg', true);
+        return redirect('novoproduto')->with('msg', 'Produto cadastrado com sucesso!');
     }
 
     //################################################################################
@@ -132,6 +158,9 @@ class ProdutoController extends Controller
     public function deletar($id)
     {
         $p = Produto::find($id);
+        $p->corprodutos()->detach();
+        $p->tecidos()->detach();
+        $p->tamanhos()->detach();
         $p->delete();
         return redirect('home')->with('msg', 'Produto deletado com sucesso!');
     }

@@ -10,7 +10,7 @@
         <div class="alert alert-success">
             {{ session('msg') }}
         </div>
-        @
+        @endif
         
 <form class="form-group" action="/associar/tecido" method="post">
 

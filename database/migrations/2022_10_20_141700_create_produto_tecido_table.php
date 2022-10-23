@@ -14,8 +14,8 @@ class CreateProdutoTecidoTable extends Migration
     public function up()
     {
         Schema::create('produto_tecido', function (Blueprint $table) {
-            $table->foreignId('tecido_id')->constrained();
-            $table->foreignId('produto_id')->constrained();
+            $table->foreignId('tecido_id')->constrained()->onDelete('CASCADE');
+            $table->foreignId('produto_id')->constrained()->onDelete('CASCADE');
             $table->timestamps();
         });
     }

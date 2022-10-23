@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="pt-BR">
 
 <head>
     <meta charset="utf-8">
@@ -56,18 +56,31 @@
                         </li>
                         @endif
                         @else
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Gerenciar Produtos
+                                Itens Padrão
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/novoproduto">Novo Produto</a></li>
+                                <li><a class="dropdown-item" href="/novalinha">Nova Linha de Produto</a></li>
                                 <li><a class="dropdown-item" href="/novotipo">Tipo de Produto</a></li>
                                 <li><a class="dropdown-item" href="/novacor">Nova Cor</a></li>
                                 <li><a class="dropdown-item" href="/novotamanho">Inserir Medidas</a></li>
                                 <li><a class="dropdown-item" href="/novotecido">Inserir Tecido</a></li>
                             </ul>
                         </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Cadastrar Produtos
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/novoproduto/vitrine">Novo Produto na Vitrine</a></li>
+                                <li><a class="dropdown-item" href="/novoproduto">Novo Item de um Produto</a></li>
+                            </ul>
+                        </li>
+
+                        
                         <li class="nav-item"><a class="nav-link" href="/register">Inserir Novo Usuário</a></li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

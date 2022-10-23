@@ -29,6 +29,7 @@
         @endforeach
     </select>
     <br>
+    
 
     <input class="btn btn-primary" type="submit" value="Cadastrar">
     

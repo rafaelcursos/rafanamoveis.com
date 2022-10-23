@@ -11,25 +11,16 @@
         </div>
         @endif
         <div class="row">
-        <h3>Inserir Novo Produto</h3>
+        <h3>Inserir um Produto na vitrine</h3>
 
-            <form action="/novoproduto" method="post" enctype="multipart/form-data">
+            <form action="/novoproduto/vitrine" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="nome" class="form-label">Nome do Produto:</label>
-                    <input type="text" name="nome" id="nome" class="form-control">
+                    <label for="produto" class="form-label">Nome do Produto:</label>
+                    <input type="text" name="produto" id="produto" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="tipo" class="form-label">Tipo de Produto:</label><br>
-                    <select class="form-select" name="tipo" id="tipo">
-                        @foreach($tipos as $tipo)
-                        <option value="{{$tipo->tipo}}">{{$tipo->tipo}}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="linha" class="form-label">Qual é a linha deste item?:</label><br>
+                    <label for="linha" class="form-label">Qual é a linha deste item?</label>
                     <select class="form-select" name="linha" id="linha">
                         @foreach($linha as $l)
                         <option value="{{$l->linha}}">{{$l->linha}}</option>
@@ -42,11 +33,7 @@
                 </div><br>
                 <div class="form-group">
                     <label for="descricao" class="form-label">Descrição:</label>
-                    <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="10"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="preco" class="form-label">Preço:</label>
-                    <input type="number" step="0.01" name="preco" id="preco" class="form-control">
+                    <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="5"></textarea>
                 </div>
                 <br>
                 <input class="btn btn-primary" type="submit" value="Cadastrar">

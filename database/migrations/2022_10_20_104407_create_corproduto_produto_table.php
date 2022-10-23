@@ -14,8 +14,8 @@ class CreateCorprodutoProdutoTable extends Migration
     public function up()
     {
         Schema::create('corproduto_produto', function (Blueprint $table) {
-            $table->foreignId('corproduto_id')->constrained();
-            $table->foreignId('produto_id')->constrained();
+            $table->foreignId('corproduto_id')->constrained()->onDelete('CASCADE');
+            $table->foreignId('produto_id')->constrained()->onDelete('CASCADE');
             $table->timestamps();
         });
     }

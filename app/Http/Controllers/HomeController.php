@@ -28,4 +28,8 @@ class HomeController extends Controller
 
         return view('home', ['produtos' => $produtos]);
     }
+
+    public function registro(){
+        return view('auth/register');
+    }
 }
