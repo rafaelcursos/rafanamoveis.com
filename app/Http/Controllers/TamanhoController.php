@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produto;
+use App\Models\Tampo;
+use App\Models\Base;
 use App\Models\Tamanho;
 use Illuminate\Http\Request;
 
@@ -10,25 +11,22 @@ class TamanhoController extends Controller
 {
     public function index()
     {
-        $produtos = Produto::all();
-        return view('/novotamanho', ['produtos' => $produtos]);
+        $tampos = Tampo::all();
+        $bases = Base::all();
+        return view('/novotamanho', ['bases' => $bases, 'tampos' => $tampos]);
     }
 
     public function insert(Request $request)
     {
-        $produto = Produto::find($request->id);
-
         $tamanho = new Tamanho();
-
-        $tamanho->produto  = $produto->nome;
+        
+        $tamanho->produto  = $request->produto;
         $tamanho->altura  = $request->altura;
         $tamanho->largura = $request->largura;
         $tamanho->comprimento = $request->comprimento;
         $tamanho->save();
 
-        $tamanhoId = $tamanho->id;
-        $produto->tamanhos()->attach($tamanhoId);
 
-        return redirect('/novotamanho')->with('msg', 'Tamanho cadastrado com sucesso!');
+        return redirect('/admin-tamanhos')->with('msg', 'Tamanho cadastrado com sucesso!');
     }
 }

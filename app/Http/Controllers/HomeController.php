@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Base;
+use App\Models\Cadeira;
 use App\Models\Produto;
+use App\Models\Tampo;
+use App\Models\User;
+use App\Models\Vitrine;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,9 +29,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $produtos = Produto::all();
-
-        return view('/home', ['produtos' => $produtos]);
+        $users = User::all();
+        
+        return view('/home', ['users' => $users]);
     }
 
 }
