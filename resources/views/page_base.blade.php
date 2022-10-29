@@ -30,7 +30,7 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <ul>
         @foreach($bases as $b)
-        <li><img onclick="trocabase(this, '{{$b->descricao}}', '{{$b->id}}')" class="img-fluid" src="/img/bases/{{$b->imagem}}" alt="{{$b->nome}}"></li>
+        <li><img onclick="trocabase(this, `{{$b->descricao}}`, `{{$b->id}}`)" class="img-fluid" src="/img/bases/{{$b->imagem}}" alt="{{$b->nome}}"></li>
         @endforeach
     </ul>
 </div>

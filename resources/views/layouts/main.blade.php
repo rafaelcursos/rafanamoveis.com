@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/tampos.js') }}" defer></script>
+    <script src="{{ asset('js/bases.js') }}" defer></script>
+    <script src="{{ asset('js/script.js') }}" defer></script>
+    <script src="{{ asset('js/menuofcanvas.js') }}" defer></script>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -27,23 +31,6 @@
 </head>
 
 <body class="antialiased">
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-3">
-        <div class="container">
-            <div class="menu-hamburguer">
-                <div class="menu"><i onclick="abrirmenu()" id="menu-top" class="bi bi-list"></i></div>
-            </div>
-        </div>
-    </nav> -->
-    <!-- ------------------------------------------------------------------------------------ -->
-    <!-- Menu top -->
-    <!-- <div id="menu" class="sidenav-menu">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <ul>
-            <li>
-                <a href="https://rafanamoveis.com.br">Site da Rafana</a>
-            </li>
-        </ul>
-    </div> -->
 
     <main>
         <div class="container-fluid">
@@ -60,11 +47,7 @@
         </div>
     </footer>
 
-    <script src="{{ asset('js/tampos.js') }}"></script>    
-    <script src="{{ asset('js/bases.js') }}"></script>
-    <script src="{{ asset('js/cadeiras.js') }}"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
-    <script src="{{ asset('js/menuofcanvas.js') }}"></script>
+
 
 </body>
 

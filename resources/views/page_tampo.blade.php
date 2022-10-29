@@ -33,7 +33,7 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <ul>
         @foreach($tampos as $t)
-        <li> <img onclick="trocatampo(this, '{{$t->descricao}}', '{{$t->id}}')" class="img-fluid" src="/img/tampos/{{$t->imagem}}" alt="{{$t->nome}}"> </li>
+        <li> <img onclick="trocatampo(this, `{{$t->descricao}}`, `{{$t->id}}`)" class="img-fluid" src="/img/tampos/{{$t->imagem}}" alt="{{$t->nome}}"> </li>
         @endforeach
     </ul>
 </div>
