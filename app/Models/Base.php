@@ -9,8 +9,11 @@ class Base extends Model
 {
     use HasFactory;
 
+    public function tamanhos(){
+        return $this->belongsToMany(Tamanho::class);
+    }
 
-    public function tampos(){
-        return $this->belongsToMany('App\Models\Tampo');
+    public function cores(){
+        return $this->belongsToMany(Cor::class);
     }
 }

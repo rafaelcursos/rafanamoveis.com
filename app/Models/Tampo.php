@@ -9,11 +9,11 @@ class Tampo extends Model
 {
     use HasFactory;
 
-    protected $casts = [
-        'base' => 'array'
-    ];
+    public function tamanhos(){
+        return $this->belongsToMany(Tamanho::class);
+    }
 
-    public function bases(){
-        return $this->belongsToMany('App\Models\Base');
+    public function cores(){
+        return $this->belongsToMany(Cor::class);
     }
 }

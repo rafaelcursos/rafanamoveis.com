@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Cadeira extends Model
 {
     use HasFactory;
+    
+    public function tamanhos(){
+        return $this->belongsToMany(Tamanho::class);
+    }
+
+    public function cores(){
+        return $this->belongsToMany(Cor::class);
+    }
 }

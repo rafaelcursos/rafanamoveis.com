@@ -3,34 +3,127 @@
 namespace App\Http\Controllers;
 
 use App\Models\Base;
-use App\Models\Linha;
+use App\Models\Cor;
+use App\Models\Tamanho;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BaseController extends Controller
 {
     public function index(){
-        $bases = Base::orderBy('id', 'DESC')->get();
-
-        return view('novabase', ['bases' => $bases]);
+        $bases = Base::all();
+        return view('admin.bases.home', [
+            'bases' => $bases
+        ]);
     }
 
-    public function insert(Request $request){
+    public function novo(){
+        return view('admin.bases.novo');
+    }
+
+    public function store(Request $request){
+
         $base = new Base();
 
         $base->nome = $request->nome;
-        if ($request->hasfile('imagem') && $request->file('imagem')->isvalid()) {
-            $imagem = $request->imagem;
-            $extensao = $imagem->extension();
-            $imagemNome = md5($imagem->getClientOriginalName() . strtotime('now')) . '.' . $extensao;
-            $imagem->move(public_path('img/bases'), $imagemNome);
-
-            $base->imagem = $imagemNome;
-        }
         $base->descricao = $request->descricao;
-        $base->preco = $request->preco;
+
+        $image = $request->imagem;
+        $imageName = $image->store('/', 'public');
+
+        $base->imagem = $imageName;
 
         $base->save();
 
-        return redirect('/admin-bases')->with('msg', 'Produto cadastrado com sucesso!');
+        return back()->with('msg', 'Cadastrado com sucesso!');
+    }
+
+    public function editar($id){
+        $base = Base::find($id);
+        return view('admin.bases.editar', [
+            'base' => $base
+        ]);
+    }
+
+    public function update($id)
+    {
+        $bases = Base::find($id);
+        return view('admin.bases.atualizar', [
+            'bases' => $bases
+        ]);
+    }
+
+    public function updateAction(Request $request, $id){
+        $bases = Base::find($id);
+
+        $bases->nome = $request->nome;
+        $bases->descricao = $request->descricao;
+
+        if($request->imagem){
+            $imagem = $request->imagem;
+            $imagemNome = $imagem->store('/', 'public');
+            $bases->imagem = $imagemNome;
+        }
+
+        $bases->save();
+
+        return back();
+    }
+
+    public function destroy($id){
+        $bases = Base::find($id);
+        $img = $bases->imagem;
+        Storage::disk('public')->delete($img);
+        $bases->delete();
+
+        return redirect('/bases');
+    }
+
+    public function tamanho($id){
+        $base = Base::find($id);
+        return view('admin.bases.tamanho', [
+            'base' => $base
+        ]);
+    }
+
+    public function tamanhoAction(Request $request, $id){
+        $base = Base::find($id);
+        $tamanho = new Tamanho();
+        $tamanho->altura = $request->altura;
+        $tamanho->largura = $request->largura;
+        $tamanho->comprimento = $request->comprimento;
+        $tamanho->save();
+
+        $t = Tamanho::orderby('id', 'desc')->first();
+        $base->tamanhos()->attach(intval($t->id));
+
+        return back();
+    }
+
+    public function cor($id){
+        $base = Base::find($id);
+        return view('admin.bases.cor', [
+            'base' => $base
+        ]);
+    }
+
+    public function corAction(Request $request, $id){
+        $base = Base::find($id);
+
+        $cor = new Cor();
+        $cor->nome = $request->nome;
+
+        if($request->imagem){
+            $imagem = $request->imagem;
+            $imagemNome = $imagem->store('/', 'public');
+            $cor->imagem = $imagemNome;
+        }
+
+        $cor->save();
+
+        $c = Cor::orderby('id', 'desc')->first();
+        $base->cores()->attach(intval($c->id));
+
+        return back();
     }
 }
