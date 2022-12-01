@@ -15,7 +15,7 @@ Route::get('/site/imprimir', [App\Http\Controllers\SiteController::class, 'impri
 Auth::routes();
 
 //primeira rota quando acessamos o painel ( Retorna todos os produtos da vitrine )
-Route::get('/painel', [App\Http\Controllers\HomeController::class, 'index'])->name('painel');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Rotas da vitrine
 Route::get('/vitrine/novo', [App\Http\Controllers\VitrineController::class, 'novo'])->middleware('auth');

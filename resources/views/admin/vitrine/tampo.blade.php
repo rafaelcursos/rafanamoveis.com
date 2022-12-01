@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row py-2">
         <div class="col-12">
-            <a class="btn btn-success btn-sm" href="/painel">VOLTAR</a>
+            <a class="btn btn-success btn-sm" href="/home">VOLTAR</a>
         </div>
     </div>
     <div class="row">
