@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row py-2">
             <div class="col-12">
-                <a class="btn btn-success btn-sm" href="/bases">VOLTAR</a>
+                <a class="btn btn-success btn-sm" href="/bases/editar/{{$base->id}}">VOLTAR</a>
                 @if (session('msg'))
                     <div class="alert alert-success">
                         {{ session('msg') }}
@@ -14,23 +14,25 @@
         </div>
         <div class="row">
             <div class="col-md-6 m-auto">
-                <h3>NOVA BASE</h3>
-                <form action="/bases/novo" method="post" class="form-group" enctype="multipart/form-data">
+                <h3>Tamanho para {{$base->nome}}</h3>
+                <form action="/bases/tamanho/{{$base->id}}" method="post" class="form-group">
                     @csrf
 
                     <div class="form-group">
-                        <label for="nome" class="form-label">Nome</label>
-                        <input type="text" name="nome" id="nome" class="form-control">
+                        <label for="altura" class="form-label">altura</label>
+                        <input type="number" name="altura" id="altura" class="form-control">
                     </div>
 
+                    
                     <div class="form-group">
-                        <label for="descricao" class="form-label">Descrição</label>
-                        <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="5"></textarea>
+                        <label for="largura" class="form-label">largura</label>
+                        <input type="number" name="largura" id="largura" class="form-control">
                     </div>
 
+                    
                     <div class="form-group">
-                        <label for="imagem" class="form-label">Imagem</label>
-                        <input type="file" name="imagem" class="form-control">
+                        <label for="comprimento" class="form-label">comprimento</label>
+                        <input type="number" name="comprimento" id="comprimento" class="form-control">
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-sm my-3">ENVIAR</button>
