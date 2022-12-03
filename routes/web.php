@@ -23,10 +23,15 @@ Route::post('/vitrine/novo', [App\Http\Controllers\VitrineController::class, 'st
 Route::get('/vitrine/editar/{id}', [App\Http\Controllers\VitrineController::class, 'editar'])->middleware('auth');
 Route::get('/vitrine/atualizar/{id}', [App\Http\Controllers\VitrineController::class, 'update'])->middleware('auth');
 Route::post( '/vitrine/atualizar/{id}', [App\Http\Controllers\VitrineController::class, 'updateAction'] )->middleware('auth');
-Route::get('/vitrine/tampo/{id}', [App\Http\Controllers\VitrineController::class, 'conectTampo'])->middleware('auth');
 Route::get('/vitrine/base/{id}', [App\Http\Controllers\VitrineController::class, 'conectBase'])->middleware('auth');
+Route::post( '/vitrine/base/{id}', [App\Http\Controllers\VitrineController::class, 'conectBaseAction'] )->middleware('auth');
+Route::get( '/vitrine/base/desassociar/{vitrine_id}/{base_id}', [App\Http\Controllers\VitrineController::class, 'baseDesassociar'] )->middleware('auth');
+Route::get('/vitrine/tampo/{id}', [App\Http\Controllers\VitrineController::class, 'conectTampo'])->middleware('auth');
+Route::post( '/vitrine/tampo/{id}', [App\Http\Controllers\VitrineController::class, 'conectTampoAction'] )->middleware('auth');
+Route::post( '/vitrine/tampo/desassociar/{vitrine_id}/{base_id}', [App\Http\Controllers\VitrineController::class, 'baseDesassociar'] )->middleware('auth');
 Route::get('/vitrine/cadeira/{id}', [App\Http\Controllers\VitrineController::class, 'conectCadeira'])->middleware('auth');
-Route::post( '/vitrine/associar/{id}', [App\Http\Controllers\VitrineController::class, 'conectAction'] )->middleware('auth');
+Route::post( '/vitrine/cadeira/{id}', [App\Http\Controllers\VitrineController::class, 'conectCadeiraAction'] )->middleware('auth');
+Route::post( '/vitrine/cadeira/desassociar/{vitrine_id}/{base_id}', [App\Http\Controllers\VitrineController::class, 'baseDesassociar'] )->middleware('auth');
 Route::delete( '/vitrine/delete/{id}', [App\Http\Controllers\VitrineController::class, 'destroy'] )->middleware('auth');
 
 //Rotas do back-end
@@ -38,8 +43,10 @@ Route::get('/bases/editar/{id}', [App\Http\Controllers\BaseController::class, 'e
 Route::get('/bases/atualizar/{id}', [App\Http\Controllers\BaseController::class, 'update'])->middleware('auth');
 Route::get('/bases/tamanho/{id}', [App\Http\Controllers\BaseController::class, 'tamanho'])->middleware('auth');
 Route::post('/bases/tamanho/{id}', [App\Http\Controllers\BaseController::class, 'tamanhoAction'])->middleware('auth');
+Route::delete('/bases/tamanho/delete/{id}', [App\Http\Controllers\BaseController::class, 'tamanhoDestroy'])->middleware('auth');
 Route::get('/bases/cor/{id}', [App\Http\Controllers\BaseController::class, 'cor'])->middleware('auth');
 Route::post('/bases/cor/{id}', [App\Http\Controllers\BaseController::class, 'corAction'])->middleware('auth');
+Route::get('/bases/cor/desassociar/{cor_id}/{base_id}', [App\Http\Controllers\BaseController::class, 'corDesassociar'])->middleware('auth');
 Route::post('/bases/atualizar/{id}', [App\Http\Controllers\BaseController::class, 'updateAction'])->middleware('auth');
 Route::delete( '/bases/delete/{id}', [App\Http\Controllers\BaseController::class, 'destroy'] )->middleware('auth');
 

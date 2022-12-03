@@ -5,6 +5,11 @@
         <div class="row py-2">
             <div class="col-12">
                 <a class="btn btn-success btn-sm" href="/bases/novo">NOVO</a>
+                @if (session('msg'))
+                <div class="alert alert-success">
+                    {{ session('msg') }}
+                </div>
+            @endif
             </div>
         </div>
         <div class="row">

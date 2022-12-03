@@ -35,7 +35,7 @@ class BaseController extends Controller
 
         $base->save();
 
-        return back()->with('msg', 'Cadastrado com sucesso!');
+        return back()->with('msg', 'Produto cadastrado com sucesso!');
     }
 
     public function editar($id){
@@ -67,7 +67,7 @@ class BaseController extends Controller
 
         $bases->save();
 
-        return back();
+        return back()->with('msg', 'Produto cadastrado com sucesso!');;
     }
 
     public function destroy($id){
@@ -76,7 +76,7 @@ class BaseController extends Controller
         Storage::disk('public')->delete($img);
         $bases->delete();
 
-        return redirect('/bases');
+        return redirect('/bases')->with('msg', 'Produto removido com sucesso!');
     }
 
     public function tamanho($id){
@@ -97,7 +97,14 @@ class BaseController extends Controller
         $t = Tamanho::orderby('id', 'desc')->first();
         $base->tamanhos()->attach(intval($t->id));
 
-        return back();
+        return back()->with('msg', 'Produto cadastrado com sucesso!');
+    }
+
+    public function tamanhoDestroy($id){
+        $tamanho = Tamanho::find($id);
+        $tamanho->delete();
+        return back()->with('msg', 'Produto removido com sucesso!');
+
     }
 
     public function cor($id){
@@ -124,6 +131,15 @@ class BaseController extends Controller
         $c = Cor::orderby('id', 'desc')->first();
         $base->cores()->attach(intval($c->id));
 
-        return back();
+        return back()->with('msg', 'Produto cadastrado com sucesso!');
     }
+
+    public function corDesassociar($corId, $baseId){
+        $cor = Cor::find($corId);
+        $base = Base::find($baseId);
+        $base->cores()->detach(intval($cor->id));
+        return back()->with('msg', 'Produto removido com sucesso!');
+    }
+
+
 }

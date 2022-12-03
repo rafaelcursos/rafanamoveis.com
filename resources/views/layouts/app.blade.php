@@ -50,7 +50,7 @@
                             @endif
                         @else
                                 <li class="nav-item">
-                                    <a href="/painel" class="nav-link">Vitrine</a>
+                                    <a href="/home" class="nav-link">Vitrine</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/bases" class="nav-link">Bases</a>

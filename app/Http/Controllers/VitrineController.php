@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Base;
 use App\Models\Vitrine;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -43,17 +44,37 @@ class VitrineController extends Controller
 
         $vitrine->save();
 
-        return back();
+        return back()->with('msg', 'Produto cadastrado com sucesso!');
+    }
+
+    public function conectBase($id)
+    {
+        $vitrine = Vitrine::find($id);
+        $bases = Base::all();
+
+        return view('admin.vitrine.base', [
+            'vitrine' => $vitrine,
+            'bases' => $bases
+        ]);
+    }
+
+    public function baseDesassociar($vitrineId , $baseId ){
+        $vitrine = Vitrine::find(intval($vitrineId));
+        
+        $vitrine->bases()->detach(intval($baseId));
+        return back()->with('msg', 'Produto removido com sucesso!');
+    }
+
+    public function conectBaseAction( Request $request ,$id){
+        $vitrine = Vitrine::find($id);
+
+        $vitrine->bases()->attach(intval($request->base));
+        return back()->with('msg', 'Produto adcionado com sucesso!');
     }
 
     public function conectTampo()
     {
         return view('admin.vitrine.tampo');
-    }
-
-    public function conectBase()
-    {
-        return view('admin.vitrine.base');
     }
 
     public function conectCadeira()
@@ -75,7 +96,7 @@ class VitrineController extends Controller
 
         $vitrine->save();
 
-        return back()->with('msg', 'Cadastrado com sucesso!');
+        return back()->with('msg', 'Produto cadastrado com sucesso!');
     }
 
     public function destroy($id){
@@ -84,6 +105,6 @@ class VitrineController extends Controller
         Storage::disk('public')->delete($img);
         $vitrine->delete();
 
-        return redirect('/painel');
+        return redirect('/home')->with('msg', 'Produto removido com sucesso!');
     }
 }

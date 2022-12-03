@@ -5,6 +5,11 @@
         <div class="row py-2">
             <div class="col-12">
                 <button class="btn btn-success btn-sm" onclick="window.history.back()">VOLTAR</button>
+                @if (session('msg'))
+                <div class="alert alert-success">
+                    {{ session('msg') }}
+                </div>
+            @endif
             </div>
         </div>
         <div class="row">
@@ -28,21 +33,29 @@
                     <ul>
                         @foreach ($base->tamanhos as $tamanho)
                             <li>
-                                {{$tamanho->altura}} X {{$tamanho->largura}} X {{$tamanho->comprimento}}
-                                <button class="btn btn-danger btn-sm">DELETAR</button>
+                                <div class="d-flex">
+                                    {{ $tamanho->altura }} X {{ $tamanho->largura }} X {{ $tamanho->comprimento }}
+                                    <form action="/bases/tamanho/delete/{{ $tamanho->id }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm"
+                                            onclick="return confirm('Deseja realmente excluir este item?')">DELETAR</button>
+                                    </form>
+                                </div>
                             </li>
                         @endforeach
                     </ul>
                 </div>
             </div>
             <div class="col-md-6">
-                <h3>Cores do produto</h3><hr>
+                <h3>Cores do produto</h3>
+                <hr>
                 <div class="row">
                     @foreach ($base->cores as $cor)
                         <div class="col-6">
-                            <h5>{{$cor->nome}}</h5>
-                            <img class="img-fluid py-2" src="{{Storage::url($cor->imagem)}}" alt="bases">
-                            <a class="btn btn-primary btn-sm" href="#">DESASSOCIAR</a>
+                            <h5>{{ $cor->nome }}</h5>
+                            <img class="img-fluid py-2" src="{{ Storage::url($cor->imagem) }}" alt="bases">
+                            <a class="btn btn-primary btn-sm" href="/bases/cor/desassociar/{{ $cor->id }}/{{$base->id}}">DESASSOCIAR</a>
                         </div>
                     @endforeach
                 </div>
