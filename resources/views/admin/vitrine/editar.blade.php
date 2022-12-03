@@ -14,8 +14,8 @@
                 <div class="d-flex">
                     <a class="btn btn-primary btn-sm" href="/vitrine/atualizar/{{ $vitrine->id }}">ATUALIZAR</a>
                     <a class="btn btn-success btn-sm" href="/vitrine/base/{{ $vitrine->id }}">BASES</a>
-                    <a class="btn btn-secondary btn-sm" href="#">TAMPOS</a>
-                    <a class="btn btn-info btn-sm" href="#">CADEIRAS</a>
+                    <a class="btn btn-secondary btn-sm" href="/vitrine/tampo/{{ $vitrine->id }}">TAMPOS</a>
+                    <a class="btn btn-info btn-sm" href="/vitrine/cadeira/{{ $vitrine->id }}">CADEIRAS</a>
                     <form action="/vitrine/delete/{{ $vitrine->id }}" method="post">
                         @csrf
                         @method('delete')
@@ -37,6 +37,22 @@
                             <img class="img-fluid py-2" src="{{ Storage::url($base->imagem) }}" alt="{{ $base->nome }}">
                             <a class="btn btn-primary btn-sm"
                                 href="/vitrine/base/desassociar/{{ $vitrine->id }}/{{ $base->id }}">DESASSOCIAR</a>
+                        @endforeach
+                    </div>
+                    <div class="col-4">
+                        @foreach ($vitrine->tampos as $tampo)
+                            <h3>{{ $tampo->nome }}</h3>
+                            <img class="img-fluid py-2" src="{{ Storage::url($tampo->imagem) }}" alt="{{ $tampo->nome }}">
+                            <a class="btn btn-primary btn-sm"
+                                href="/vitrine/tampo/desassociar/{{ $vitrine->id }}/{{ $tampo->id }}">DESASSOCIAR</a>
+                        @endforeach
+                    </div>
+                    <div class="col-4">
+                        @foreach ($vitrine->cadeiras as $cadeira)
+                            <h3>{{ $cadeira->nome }}</h3>
+                            <img class="img-fluid py-2" src="{{ Storage::url($cadeira->imagem) }}" alt="{{ $cadeira->nome }}">
+                            <a class="btn btn-primary btn-sm"
+                                href="/vitrine/cadeira/desassociar/{{ $vitrine->id }}/{{ $cadeira->id }}">DESASSOCIAR</a>
                         @endforeach
                     </div>
                 </div>

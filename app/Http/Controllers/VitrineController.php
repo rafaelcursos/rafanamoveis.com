@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Base;
+use App\Models\Cadeira;
+use App\Models\Tampo;
 use App\Models\Vitrine;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -72,16 +74,27 @@ class VitrineController extends Controller
         return back()->with('msg', 'Produto adcionado com sucesso!');
     }
 
-    public function conectTampo()
+    public function conectTampo($id)
     {
-        return view('admin.vitrine.tampo');
+        $vitrine = Vitrine::find($id);
+        $tampos = Tampo::all();
+
+        return view('admin.vitrine.tampo', [
+            'vitrine' => $vitrine,
+            'tampos' => $tampos
+        ]);
     }
 
-    public function conectCadeira()
+    public function conectCadeira($id)
     {
-        return view('admin.vitrine.cadeira');
-    }
+        $vitrine = Vitrine::find($id);
+        $cadeiras = Cadeira::all();
 
+        return view('admin.vitrine.cadeira', [
+            'vitrine' => $vitrine,
+            'cadeiras' => $cadeiras
+        ]);
+    }
     public function store(Request $request){
 
         $vitrine = new Vitrine();
