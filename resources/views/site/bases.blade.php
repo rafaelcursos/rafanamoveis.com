@@ -1,4 +1,4 @@
-@extends('layouts.pages')
+@extends('layouts.site')
 
 @section('content')
     <div class="container-fluid body">
@@ -18,7 +18,7 @@
 
                 <div class="image-primary">
                     <div style="height: 180px" class="area-tampo">
-                        
+
                     </div>
                     <img id="base" class="img-fluid " src="/img/statics/base.gif" alt="imagem da base">
                 </div>
@@ -29,18 +29,16 @@
                 <div class="row ">
                     <div class="cards-container">
                         @foreach ($bases as $b)
-                            @foreach ($b->images as $image)
-                                <div onclick="trocabase(`{{ Storage::url($image->image) }}`, `{{ $b->name }}`, `{{ $b->description }}`)"
-                                    class="cards">
-                                    <div class="cards">
-                                        <div class="img-card">
-                                            <img id="miniatura" class="img-fluid" src="{{ Storage::url($image->image) }}"
-                                                alt="">
-                                        </div>
-
+                            <div onclick="trocabase(`{{ Storage::url($b->imagem) }}`, `{{ $b->nome }}`, `{{ $b->descricao }}`)"
+                                class="cards">
+                                <div class="cards">
+                                    <div class="img-card">
+                                        <img id="miniatura" class="img-fluid" src="{{ Storage::url($b->imagem) }}"
+                                            alt="{{ $b->nome }}">
                                     </div>
+
                                 </div>
-                            @endforeach
+                            </div>
                         @endforeach
 
                     </div>
@@ -49,8 +47,8 @@
 
             </div>
         </div>
-        <a class="botao-voltar"  onclick="limpar()" href="javascript:void(0)">voltar</a>
-        <a class="botao-pages" href="/page_tampos/{{ $id }}">Próximo</a>
+        <a class="botao-voltar" onclick="limpar()" href="javascript:void(0)">voltar</a>
+        <a class="botao-pages" href="/site/tampos/{{$vitrine->id}}">Próximo</a>
     </div>
     </div>
 @endsection

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row py-2">
         <div class="col-12">
-            <a class="btn btn-success btn-sm" href="/bases">VOLTAR</a>
+            <a class="btn btn-success btn-sm" href="/cadeiras">VOLTAR</a>
             @if (session('msg'))
             <div class="alert alert-success">
                 {{ session('msg') }}
@@ -14,17 +14,17 @@
     </div>
     <div class="row">
         <div class="col-md-6 m-auto">
-            <h3>Atualizando {{$bases->nome}}</h3>
-            <form action="/bases/atualizar/{{$bases->id}}" method="post" class="form-group" enctype="multipart/form-data">
+            <h3>Atualizando {{$cadeiras->nome}}</h3>
+            <form action="/cadeiras/atualizar/{{$cadeiras->id}}" method="post" class="form-group" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="nome" class="form-label">Nome</label>
-                    <input type="text" name="nome" id="nome" class="form-control" value="{{$bases->nome}}">
+                    <input type="text" name="nome" id="nome" class="form-control" value="{{$cadeiras->nome}}">
                 </div>
 
                 <div class="form-group">
                     <label for="descricao" class="form-label">Descrição</label>
-                    <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="5">{{$bases->descricao}}</textarea>
+                    <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="5">{{$cadeiras->descricao}}</textarea>
                 </div>
 
                 <div class="form-group">

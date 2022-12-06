@@ -14,13 +14,13 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <h3>{{ $base->nome }}</h3>
-                <img class="img-fluid py-3" src="{{ Storage::url($base->imagem) }}" alt="bases">
+                <h3>{{ $tampo->nome }}</h3>
+                <img class="img-fluid py-3" src="{{ Storage::url($tampo->imagem) }}" alt="tampos">
                 <div class="d-flex">
-                    <a class="btn btn-primary btn-sm" href="/bases/atualizar/{{ $base->id }}">ATUALIZAR</a>
-                    <a class="btn btn-secondary btn-sm" href="/bases/tamanho/{{ $base->id }}">TAMANHO</a>
-                    <a class="btn btn-success btn-sm" href="/bases/cor/{{ $base->id }}">COR</a>
-                    <form action="/bases/delete/{{ $base->id }}" method="post">
+                    <a class="btn btn-primary btn-sm" href="/tampos/atualizar/{{ $tampo->id }}">ATUALIZAR</a>
+                    <a class="btn btn-secondary btn-sm" href="/tampos/tamanho/{{ $tampo->id }}">TAMANHO</a>
+                    <a class="btn btn-success btn-sm" href="/tampos/cor/{{ $tampo->id }}">COR</a>
+                    <form action="/tampos/delete/{{ $tampo->id }}" method="post">
                         @csrf
                         @method('delete')
                         <button type="submit" class="btn btn-danger btn-sm"
@@ -31,11 +31,11 @@
                     <h3>Tamanhos do produto</h3>
                     <hr>
                     <ul>
-                        @foreach ($base->tamanhos as $tamanho)
+                        @foreach ($tampo->tamanhos as $tamanho)
                             <li>
                                 <div class="d-flex">
                                     {{ $tamanho->altura }} X {{ $tamanho->largura }} X {{ $tamanho->comprimento }}
-                                    <form action="/bases/tamanho/delete/{{ $tamanho->id }}" method="post">
+                                    <form action="/tampos/tamanho/delete/{{ $tamanho->id }}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm"
@@ -51,11 +51,11 @@
                 <h3>Cores do produto</h3>
                 <hr>
                 <div class="row">
-                    @foreach ($base->cores as $cor)
+                    @foreach ($tampo->cores as $cor)
                         <div class="col-6">
                             <h5>{{ $cor->nome }}</h5>
-                            <img class="img-fluid py-2" src="{{ Storage::url($cor->imagem) }}" alt="bases">
-                            <a class="btn btn-primary btn-sm" href="/bases/cor/desassociar/{{ $cor->id }}/{{$base->id}}">DESASSOCIAR</a>
+                            <img class="img-fluid py-2" src="{{ Storage::url($cor->imagem) }}" alt="tampos">
+                            <a class="btn btn-primary btn-sm" href="/tampos/cor/desassociar/{{ $cor->id }}/{{$tampo->id}}">DESASSOCIAR</a>
                         </div>
                     @endforeach
                 </div>

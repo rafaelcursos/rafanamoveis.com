@@ -1,4 +1,4 @@
-@extends('layouts.pages')
+@extends('layouts.site')
 
 @section('content')
     <div class="container-fluid body">
@@ -27,14 +27,12 @@
                 <div class="row ">
                     <div class="cards-container">
                         @foreach ($tampos as $t)
-                            @foreach ($t->images as $image)
-                                <div onclick="trocatampo(`{{ Storage::url($image->image) }}`, `{{ $t->name }}`, `{{ $t->description }}`)"
-                                    class="cards">
-                                    <div class="img-card ">
-                                        <img class="img-fluid" src="{{ Storage::url($image->image) }}" alt="">
-                                    </div>
+                            <div onclick="trocatampo(`{{ Storage::url($t->imagem) }}`, `{{ $t->nome }}`, `{{ $t->descricao }}`)"
+                                class="cards">
+                                <div class="img-card ">
+                                    <img class="img-fluid" src="{{ Storage::url($t->imagem) }}" alt="">
                                 </div>
-                            @endforeach
+                            </div>
                         @endforeach
                     </div>
                 </div>
@@ -42,8 +40,8 @@
 
         </div>
 
-        <a class="botao-voltar" href="#" onclick="window.history.back()" >voltar</a>
-        <a class="botao-pages" href="/page_cadeiras">Próximo</a>
+        <a class="botao-voltar" href="#" onclick="window.history.back()">voltar</a>
+        <a class="botao-pages" href="/site/cadeiras/{{$vitrine->id}}">Próximo</a>
     </div>
     </div>
 @endsection

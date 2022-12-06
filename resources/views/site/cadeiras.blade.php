@@ -1,4 +1,4 @@
-@extends('layouts.pages')
+@extends('layouts.site')
 
 @section('content')
     <div class="container-fluid body">
@@ -22,9 +22,10 @@
                             <img id="tampo" class="img-fluid " src="" alt="imagem do tampo">
                             <img id="base" class="img-fluid " src="" alt="imagem da base">
                         </div>
-                        <div  class="col-3">
+                        <div class="col-3">
                             <div class="cadeira-container">
-                                <img  id="cadeira" class="img-fluid " src="{{ Storage::url($cadeira[0]->image)}}" alt="imagem da cadeira">
+                                <img id="cadeira" class="img-fluid " src="{{ Storage::url($cadeiras[0]->imagem) }}"
+                                    alt="imagem da cadeira">
                             </div>
                         </div>
                     </div>
@@ -36,15 +37,13 @@
                 <div class="row ">
                     <div class="cards-container">
                         @foreach ($cadeiras as $c)
-                            @foreach ($c->images as $image)
-                                <div onclick="trocacadeira(`{{ Storage::url($image->image) }}`, `{{ $c->name }}`, `{{ $c->description }}`)"
-                                    class="cards">
-                                    <div class="img-card">
-                                        <img width="100" height="100" class="img-fluid"
-                                            src="{{ Storage::url($image->image) }}" alt="">
-                                    </div>
+                            <div onclick="trocacadeira(`{{ Storage::url($c->imagem) }}`, `{{ $c->nome }}`, `{{ $c->descricao }}`)"
+                                class="cards">
+                                <div class="img-card">
+                                    <img width="100" height="100" class="img-fluid"
+                                        src="{{ Storage::url($c->imagem) }}" alt="">
                                 </div>
-                            @endforeach
+                            </div>
                         @endforeach
 
                     </div>
@@ -53,7 +52,7 @@
 
             </div>
         </div>
-        <a class="botao-voltar" href="#" onclick="window.history.back()" >voltar</a>
-        <a class="botao-pages" href="/page_report">Próximo</a>
+        <a class="botao-voltar" href="#" onclick="window.history.back()">voltar</a>
+        <a class="botao-pages" href="/site/imprimir">Próximo</a>
     </div>
 @endsection

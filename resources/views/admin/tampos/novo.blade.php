@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row py-2">
             <div class="col-12">
-                <a class="btn btn-success btn-sm" href="/bases">VOLTAR</a>
+                <a class="btn btn-success btn-sm" href="/tampos">VOLTAR</a>
                 @if (session('msg'))
                     <div class="alert alert-success">
                         {{ session('msg') }}
@@ -14,8 +14,8 @@
         </div>
         <div class="row">
             <div class="col-md-6 m-auto">
-                <h3>NOVA BASE</h3>
-                <form action="/bases/novo" method="post" class="form-group" enctype="multipart/form-data">
+                <h3>NOVO TAMPO</h3>
+                <form action="/tampos/novo" method="post" class="form-group" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">

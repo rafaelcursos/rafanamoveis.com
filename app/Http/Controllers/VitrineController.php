@@ -67,6 +67,20 @@ class VitrineController extends Controller
         return back()->with('msg', 'Produto removido com sucesso!');
     }
 
+    public function tampoDesassociar($vitrineId , $baseId ){
+        $vitrine = Vitrine::find(intval($vitrineId));
+        
+        $vitrine->tampos()->detach(intval($baseId));
+        return back()->with('msg', 'Produto removido com sucesso!');
+    }
+
+    public function cadeiraDesassociar($vitrineId , $baseId ){
+        $vitrine = Vitrine::find(intval($vitrineId));
+        
+        $vitrine->cadeiras()->detach(intval($baseId));
+        return back()->with('msg', 'Produto removido com sucesso!');
+    }
+    
     public function conectBaseAction( Request $request ,$id){
         $vitrine = Vitrine::find($id);
 
@@ -85,6 +99,13 @@ class VitrineController extends Controller
         ]);
     }
 
+    public function conectTampoAction( Request $request ,$id){
+        $vitrine = Vitrine::find($id);
+
+        $vitrine->tampos()->attach(intval($request->tampo));
+        return back()->with('msg', 'Produto adcionado com sucesso!');
+    }
+
     public function conectCadeira($id)
     {
         $vitrine = Vitrine::find($id);
@@ -95,6 +116,14 @@ class VitrineController extends Controller
             'cadeiras' => $cadeiras
         ]);
     }
+
+    public function conectCadeiraAction( Request $request ,$id){
+        $vitrine = Vitrine::find($id);
+
+        $vitrine->cadeiras()->attach(intval($request->cadeira));
+        return back()->with('msg', 'Produto adcionado com sucesso!');
+    }
+
     public function store(Request $request){
 
         $vitrine = new Vitrine();

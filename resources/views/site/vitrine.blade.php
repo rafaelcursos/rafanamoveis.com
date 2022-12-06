@@ -14,20 +14,20 @@
         <h1>Personalize seu Móvel</h1>
         <h3>Escolha um modelo abaixo!</h3>
 
-        {{-- @foreach($showcase as $s)
+        @foreach($vitrine as $v)
 
         <div class="col-lg-6">
-            <a href="/page_bases/{{$s->id}}">
-                <div class="showcase-card">
-                    <img class="img-fluid" src="{{Storage::url($s->image)}}" alt="{{$s->name}}">
+            <a href="/site/bases/{{$v->id}}">
+                <div class="vitrine-card">
+                    <img class="img-fluid" src="{{Storage::url($v->imagem)}}" alt="{{$v->nome}}">
                     <div class="d-flex justify-content-around">
-                        <h3 class="d-flex align-items-center">{{$s->name}}</h3><h3><ion-icon name="arrow-forward-outline"></ion-icon></h3>
+                        <h3 class="d-flex align-items-center">{{$v->nome}}</h3><h3><ion-icon name="arrow-forward-outline"></ion-icon></h3>
                     </div>
                     
                 </div>
             </a>
         </div>
-        @endforeach --}}
+        @endforeach
 
     </div>
 

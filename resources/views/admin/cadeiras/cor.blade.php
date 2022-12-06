@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row py-2">
             <div class="col-12">
-                <a class="btn btn-success btn-sm" href="/bases/editar/{{$base->id}}">VOLTAR</a>
+                <a class="btn btn-success btn-sm" href="/cadeiras/editar/{{$cadeira->id}}">VOLTAR</a>
                 @if (session('msg'))
                     <div class="alert alert-success">
                         {{ session('msg') }}
@@ -14,8 +14,8 @@
         </div>
         <div class="row">
             <div class="col-md-6 m-auto">
-                <h3>Cor para {{$base->nome}}</h3>
-                <form action="/bases/cor/{{$base->id}}" method="post" class="form-group" enctype="multipart/form-data">
+                <h3>Cor para {{$cadeira->nome}}</h3>
+                <form action="/cadeiras/cor/{{$cadeira->id}}" method="post" class="form-group" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
