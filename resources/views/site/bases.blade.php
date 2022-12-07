@@ -12,15 +12,23 @@
         <hr>
 
         <div class="row m-0">
-
+            {{-- primeira coluna reservada para a imagem principal --}}
             <div class="col-lg-9 mb-5 m-0 p-0">
-
-
-                <div class="image-primary">
-                    <div style="height: 180px" class="area-tampo">
-
+                <div class="row bg-dark">
+                    {{-- coluna reservada para imagem --}}
+                    <div class="col-10">
+                        <div class="image-primary">
+                            {{-- area reservada para dar um espaço entre o tampo e a base --}}
+                            <div style="height: 180px" class="area-tampo"></div>
+                            {{-- area da imagem principal --}}
+                            <img id="base" class="img-fluid " src="/img/statics/base.gif" alt="imagem da base">
+                        </div>
                     </div>
-                    <img id="base" class="img-fluid " src="/img/statics/base.gif" alt="imagem da base">
+                    {{-- coluna reservada para os botões de cor e tamanho --}}
+                    <div class="col-2">
+                        <button class="btn btn-primary">Cor</button>
+                        <button class="btn btn-info">Tamanho</button>
+                    </div>
                 </div>
 
             </div>
@@ -36,11 +44,9 @@
                                         <img id="miniatura" class="img-fluid" src="{{ Storage::url($b->imagem) }}"
                                             alt="{{ $b->nome }}">
                                     </div>
-
                                 </div>
                             </div>
                         @endforeach
-
                     </div>
 
                 </div>
@@ -48,7 +54,7 @@
             </div>
         </div>
         <a class="botao-voltar" onclick="limpar()" href="javascript:void(0)">voltar</a>
-        <a class="botao-pages" href="/site/tampos/{{$vitrine->id}}">Próximo</a>
+        <a class="botao-pages" href="/site/tampos/{{ $vitrine->id }}">Próximo</a>
     </div>
     </div>
 @endsection
