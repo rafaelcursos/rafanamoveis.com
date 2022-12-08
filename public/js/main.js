@@ -6,6 +6,8 @@ let reportNameBase = document.getElementById('reportNameBase');
 let reportDescriptionTampo = document.getElementById('reportDescriptionTampo');
 let reportDescriptionBase = document.getElementById('reportDescriptionBase');
 
+let btnProximo = document.getElementById('btn-proximo');
+
 let imgBase = localStorage.getItem('imgBase');
 let imgTampo = localStorage.getItem('imgTampo');
 let imgCadeira = localStorage.getItem('imgCadeira');
@@ -23,12 +25,25 @@ function limpar(){
     window.location.href = '/';
 }
 
-function trocabase(img, name, description){
+function trocabase(img, name, description, id, vitrine){
     localStorage.setItem('imgBase', img);
     localStorage.setItem('nameBase', name);
     localStorage.setItem('descriptionBase', description);
     base.setAttribute('src', img);
+    btnProximo.setAttribute('href', `/site/bases/cor/${vitrine}/${id}`);
 
+}
+
+function trocacor(img, nomeCor, vitrineId){
+    localStorage.setItem('imgBase', img);
+    localStorage.setItem('nomeCor', nomeCor);
+    window.location.href = `/site/tampos/${vitrineId}`;
+}
+
+function setTamanho(altura, largura, comprimento){
+    localStorage.setItem('altura', altura)
+    localStorage.setItem('largura', largura)
+    localStorage.setItem('comprimento', comprimento)
 }
 
 function trocatampo(img, name, description){

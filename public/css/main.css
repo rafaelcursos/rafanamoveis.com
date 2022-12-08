@@ -119,6 +119,18 @@ a {
     max-width: 950px;
     margin: auto;
 }
+
+/* area do modal */
+
+.area-modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 10%;
+    background-color: #0008;
+    display: none;
+}
+
 @media (min-width: 991px){
     .cadeira-container{
         transform:  translateX(-130px);

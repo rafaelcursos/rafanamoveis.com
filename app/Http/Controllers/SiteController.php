@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vitrine;
+use App\Models\Base;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -17,11 +18,22 @@ class SiteController extends Controller
     public function bases($id)
     {
         $vitrine = Vitrine::find($id);
-        $bases = $vitrine->bases()->get();        
+        $bases = $vitrine->bases()->get();  
+        
         return view('site.bases', [
             'vitrine' => $vitrine,
             'bases' => $bases
         ]);
+    }
+
+    public function baseCor($vitrineId, $baseId){
+        $base = Base::find($baseId);
+        $vitrine = Vitrine::find($vitrineId);
+        return view('site.corbase', [
+            'base' => $base,
+            'vitrine' => $vitrine
+        ]);
+
     }
 
     public function tampos($id)

@@ -7,7 +7,11 @@ use Illuminate\Support\Facades\Route;
 //Rotas do front-end ( Rotas do site )
 Route::get('/', [App\Http\Controllers\SiteController::class, 'index']);
 Route::get('/site/bases/{id}', [App\Http\Controllers\SiteController::class, 'bases']);
+Route::get('/site/bases/cor/{vitrine_id}/{id}', [App\Http\Controllers\SiteController::class, 'baseCor']);
+Route::get('/site/bases/tamanho/{vitrine_id}/{id}', [App\Http\Controllers\SiteController::class, 'baseTamanho']);
 Route::get('/site/tampos/{id}', [App\Http\Controllers\SiteController::class, 'tampos']);
+Route::get('/site/tampos/cor/{vitrine_id}/{id}', [App\Http\Controllers\SiteController::class, 'tampoCor']);
+Route::get('/site/tampos/tamanho/{vitrine_id}/{id}', [App\Http\Controllers\SiteController::class, 'tampoTamanho']);
 Route::get('/site/cadeiras/{id}', [App\Http\Controllers\SiteController::class, 'cadeiras']);
 Route::get('/site/imprimir', [App\Http\Controllers\SiteController::class, 'imprimir']);
 

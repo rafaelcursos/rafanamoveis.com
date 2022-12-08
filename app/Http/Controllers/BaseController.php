@@ -12,6 +12,7 @@ class BaseController extends Controller
 {
     public function index(){
         $bases = Base::all();
+
         return view('admin.bases.home', [
             'bases' => $bases
         ]);
