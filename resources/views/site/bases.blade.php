@@ -14,7 +14,7 @@
         <div class="row m-0">
             {{-- primeira coluna reservada para a imagem principal --}}
             <div class="col-lg-9 mb-5 m-0 p-0">
-                <div class="row bg-dark">
+                <div class="row">
                     {{-- coluna reservada para imagem --}}
                     <div class="col-10">
                         <div class="image-primary">
