@@ -20,6 +20,9 @@ let descriptionBase = localStorage.getItem('descriptionBase');
 let descriptionTampo = localStorage.getItem('descriptionTampo');
 let descriptionCadeira = localStorage.getItem('descriptionCadeira');
 
+let tamanho = document.getElementById('tamanho');
+
+
 function limpar(){
     localStorage.clear();
     window.location.href = '/';
@@ -44,6 +47,9 @@ function setTamanho(altura, largura, comprimento){
     localStorage.setItem('altura', altura)
     localStorage.setItem('largura', largura)
     localStorage.setItem('comprimento', comprimento)
+
+    tamanho.innerHTML = `${altura} X ${largura} X ${comprimento}`;
+
 }
 
 function trocatampo(img, name, description){

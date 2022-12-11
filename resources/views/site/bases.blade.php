@@ -14,13 +14,14 @@
         <div class="row m-0">
             {{-- primeira coluna reservada para a imagem principal --}}
             <div class="col-lg-9 mb-5 m-0 p-0">
-                <div class="row">
-                    <div class="image-primary">
-                        {{-- area reservada para dar um espaço entre o tampo e a base --}}
-                        <div style="height: 180px" class="area-tampo"></div>
-                        {{-- area da imagem principal --}}
-                        <img id="base" class="img-fluid " src="/img/statics/base.gif" alt="imagem da base">
+                <div class="image-primary">
+                    {{-- area reservada para dar um espaço entre o tampo e a base --}}
+                    <div style="height: 180px" class="area-tampo">
+                        <h3>Tamanho da base</h3>
+                        <span id="tamanho"></span>
                     </div>
+                    {{-- area da imagem principal --}}
+                    <img id="base" class="img-fluid " src="/img/statics/base.gif" alt="imagem da base">
                 </div>
 
             </div>
@@ -29,11 +30,20 @@
                 <div class="row ">
                     <div class="cards-container">
                         @foreach ($bases as $b)
-                            <div onclick="trocabase(`{{ Storage::url($b->imagem) }}`, `{{ $b->nome }}`, `{{ $b->descricao }}`, `{{$b->id}}`, `{{ $vitrine->id }}`)"
+                            <div onclick="trocabase(`{{ Storage::url($b->imagem) }}`, `{{ $b->nome }}`, `{{ $b->descricao }}`, `{{ $b->id }}`, `{{ $vitrine->id }}`)"
                                 class="cards">
                                 <div class="img-card">
                                     <img id="miniatura" class="img-fluid" src="{{ Storage::url($b->imagem) }}"
                                         alt="{{ $b->nome }}">
+                                </div>
+                                <div style="border: 1px solid #ddd; padding: 5px;">
+                                    <p>Escolha um tamanho abaixo:</p>
+                                    @foreach ($b->tamanhos as $t)
+                                        <span  style="cursor: pointer;"
+                                            onclick="setTamanho(`{{ $t->altura }}`, `{{ $t->largura }}`, `{{ $t->comprimento }}`, this)">{{ $t->altura }}
+                                            X {{ $t->largura }} X {{ $t->comprimento }}</span>
+                                        <br>
+                                    @endforeach
                                 </div>
                             </div>
                         @endforeach

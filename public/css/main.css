@@ -5,7 +5,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.tamanho {
+    background-color: #fff;
+    color: #1d1d1b;
+}
 .body {
     max-height: 100vh;
     overflow: hidden;
