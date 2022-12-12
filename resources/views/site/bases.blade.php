@@ -16,9 +16,8 @@
             <div class="col-lg-9 mb-5 m-0 p-0">
                 <div class="image-primary">
                     {{-- area reservada para dar um espaço entre o tampo e a base --}}
-                    <div style="height: 180px" class="area-tampo">
-                        <h3>Tamanho da base</h3>
-                        <span id="tamanho"></span>
+                    <div style="height: 180px" class="area-tampo text-center">
+                        <h3 id="nome-base-area" class="display-4"></h3>
                     </div>
                     {{-- area da imagem principal --}}
                     <img id="base" class="img-fluid " src="/img/statics/base.gif" alt="imagem da base">
@@ -35,15 +34,6 @@
                                 <div class="img-card">
                                     <img id="miniatura" class="img-fluid" src="{{ Storage::url($b->imagem) }}"
                                         alt="{{ $b->nome }}">
-                                </div>
-                                <div style="border: 1px solid #ddd; padding: 5px;">
-                                    <p>Escolha um tamanho abaixo:</p>
-                                    @foreach ($b->tamanhos as $t)
-                                        <span  style="cursor: pointer;"
-                                            onclick="setTamanho(`{{ $t->altura }}`, `{{ $t->largura }}`, `{{ $t->comprimento }}`, this)">{{ $t->altura }}
-                                            X {{ $t->largura }} X {{ $t->comprimento }}</span>
-                                        <br>
-                                    @endforeach
                                 </div>
                             </div>
                         @endforeach

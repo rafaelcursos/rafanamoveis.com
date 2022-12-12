@@ -5,8 +5,13 @@ let reportNameTampo = document.getElementById('nametampo');
 let reportNameBase = document.getElementById('reportNameBase');
 let reportDescriptionTampo = document.getElementById('reportDescriptionTampo');
 let reportDescriptionBase = document.getElementById('reportDescriptionBase');
-
+let nomeDaBaseArea = document.getElementById('nome-base-area');
+let tampoTamanho = document.getElementById('tampoTamanho');
 let btnProximo = document.getElementById('btn-proximo');
+
+let alturaTampo = localStorage.getItem('altura')
+let larguraTampo = localStorage.getItem('largura')
+let comprimentoTampo = localStorage.getItem('comprimento')
 
 let imgBase = localStorage.getItem('imgBase');
 let imgTampo = localStorage.getItem('imgTampo');
@@ -20,9 +25,6 @@ let descriptionBase = localStorage.getItem('descriptionBase');
 let descriptionTampo = localStorage.getItem('descriptionTampo');
 let descriptionCadeira = localStorage.getItem('descriptionCadeira');
 
-let tamanho = document.getElementById('tamanho');
-
-
 function limpar(){
     localStorage.clear();
     window.location.href = '/';
@@ -33,6 +35,7 @@ function trocabase(img, name, description, id, vitrine){
     localStorage.setItem('nameBase', name);
     localStorage.setItem('descriptionBase', description);
     base.setAttribute('src', img);
+    nomeDaBaseArea.innerHTML = name;
     btnProximo.setAttribute('href', `/site/bases/cor/${vitrine}/${id}`);
 
 }
@@ -48,7 +51,7 @@ function setTamanho(altura, largura, comprimento){
     localStorage.setItem('largura', largura)
     localStorage.setItem('comprimento', comprimento)
 
-    tamanho.innerHTML = `${altura} X ${largura} X ${comprimento}`;
+    tampoTamanho.innerHTML = `${largura} X ${comprimento}`;
 
 }
 
@@ -76,6 +79,8 @@ if(imgCadeira){
     cadeira.setAttribute('src', imgCadeira);
 }
 
+
+tampoTamanho.innerHTML = `${larguraTampo} X ${comprimentoTampo}`;
 reportNameTampo.innerHTML = nameTampo;
 reportNameBase.innerHTML = nameBase;
 reportNameCadeira.innerHTML = nameCadeira;
@@ -83,4 +88,3 @@ reportNameCadeira.innerHTML = nameCadeira;
 reportDescriptionTampo.innerHTML = descriptionTampo;
 reportDescriptionBase.innerHTML = descriptionBase;
 reportDescriptionCadeira.innerHTML = descriptionCadeira;
-
