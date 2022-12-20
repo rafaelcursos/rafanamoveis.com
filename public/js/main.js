@@ -9,7 +9,7 @@ let descricaoBase = localStorage.getItem('descriptionBase');
 
 // tampos
 let imgTampoArea = document.getElementById('img-tampo-area');
-let tampoTamanho = document.getElementById('tampoTamanho');
+let tampoTamanho = document.getElementById('tampo-tamanho');
 let nomeTampoArea = document.getElementById('nome-tampo-area');
 let descricaoTampoArea = document.getElementById('descricao-tampo-area');
 
@@ -47,3 +47,7 @@ if (imgTampo) {
 if (nameTampo){
     nomeTampoArea.innerHTML = nameTampo;
 }
+if (larguraTampo && comprimentoTampo){
+    tampoTamanho.innerHTML = `${larguraTampo} X ${comprimentoTampo}`;
+}
+

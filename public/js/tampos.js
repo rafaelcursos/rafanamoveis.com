@@ -17,7 +17,3 @@ function setTamanho(altura, largura, comprimento, item) {
     tampoTamanho.innerHTML = `${largura} X ${comprimento}`;
     item.classList.add('active');
 }
-
-if (larguraTampo && comprimentoTampo){
-    tampoTamanho.innerHTML = `${larguraTampo} X ${comprimentoTampo}`;
-}
