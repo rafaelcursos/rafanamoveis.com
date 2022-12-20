@@ -20,21 +20,21 @@
                 <h1>Relatório do Produto</h1>
 
                 <div class="col-md-8 m-auto mb-3 mt-3">
-                    <img id="img-tampo-imprimir" class="img-fluid " src="" alt="imagem do tampo">
-                    <img id="img-base-imprimir" class="img-fluid " src="" alt="imagem da base">
+                    <img id="img-tampo-area" class="img-fluid " src="" alt="imagem do tampo">
+                    <img id="img-base-area" class="img-fluid " src="" alt="imagem da base">
                 </div>
 
                 <hr>
                 <hr>
 
                 <div class="col-12 mb-3 mt-3">
-                    <h2 id="name-tampo"></h2>
-                    <p id="descricao-tampo"></p>
+                    <h2 id="nome-tampo-area"></h2>
+                    <p id="descricao-tampo-area"></p>
                 </div>
 
                 <div class="col-12 mb-3 mt-3">
-                    <h2 id="name-base"></h2>
-                    <p id="descricao-base"></p>
+                    <h2 id="nome-base-area"></h2>
+                    <p id="descricao-base-area"></p>
                 </div>
 
             </div>
@@ -44,7 +44,7 @@
 
             <div class="row mb-3 mt-3">
                 <div class="col-md-6 mb-3 mt-3 text-center">
-                    <img width="200" id="cadeira" class="img-fluid" src="" alt="imagem da cadeira">
+                    <img width="200" id="img-cadeira-area" class="img-fluid" src="" alt="imagem da cadeira">
                 </div>
 
                 <div class="col-md-6 mb-3 mt-3">

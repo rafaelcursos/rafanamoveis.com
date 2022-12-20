@@ -1,14 +1,3 @@
-if (imgTampo) {
-    imgTampoArea.setAttribute('src', imgTampo);
-}
-if (nameTampo){
-    nomeTampoArea.innerHTML = nameTampo;
-}
-if (larguraTampo && comprimentoTampo){
-    tampoTamanho.innerHTML = `${larguraTampo} X ${comprimentoTampo}`;
-}
-
-
 function trocatampo(img, name, description) {
     localStorage.setItem('imgTampo', img);
     localStorage.setItem('nameTampo', name);
@@ -29,6 +18,6 @@ function setTamanho(altura, largura, comprimento, item) {
     item.classList.add('active');
 }
 
-
-
-
+if (larguraTampo && comprimentoTampo){
+    tampoTamanho.innerHTML = `${larguraTampo} X ${comprimentoTampo}`;
+}

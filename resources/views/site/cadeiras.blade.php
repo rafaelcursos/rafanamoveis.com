@@ -19,12 +19,12 @@
                 <div class="image-primary">
                     <div class="row p-0">
                         <div class="col-9">
-                            <img id="tampo-cadeira" class="img-fluid " src="" alt="imagem do tampo">
-                            <img id="base" class="img-fluid " src="" alt="imagem da base">
+                            <img id="img-tampo-area" class="img-fluid " src="" alt="imagem do tampo">
+                            <img id="img-base-area" class="img-fluid " src="" alt="imagem da base">
                         </div>
                         <div class="col-3">
                             <div class="cadeira-container">
-                                <img id="cadeira" class="img-fluid " src="{{ Storage::url($cadeiras[0]->imagem) }}"
+                                <img id="img-cadeira-area" class="img-fluid " src="{{ Storage::url($cadeiras[0]->imagem) }}"
                                     alt="imagem da cadeira">
                             </div>
                         </div>
