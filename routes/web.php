@@ -14,6 +14,8 @@ Route::get('/site/tampos/cor/{vitrine_id}/{id}', [App\Http\Controllers\SiteContr
 Route::get('/site/tampos/tamanho/{vitrine_id}/{id}', [App\Http\Controllers\SiteController::class, 'tampoTamanho']);
 Route::get('/site/cadeiras/{id}', [App\Http\Controllers\SiteController::class, 'cadeiras']);
 Route::get('/site/imprimir', [App\Http\Controllers\SiteController::class, 'imprimir']);
+Route::get('/site/regiao', [App\Http\Controllers\SiteController::class, 'regiao']);
+Route::get('/site/representantes/{regiao}', [App\Http\Controllers\SiteController::class, 'representantes']);
 
 //Rotas do back-end ( Rotas do admin )
 Auth::routes();
@@ -83,3 +85,12 @@ Route::post('/cadeiras/cor/{id}', [App\Http\Controllers\CadeiraController::class
 Route::get('/cadeiras/cor/desassociar/{cor_id}/{cadeira_id}', [App\Http\Controllers\CadeiraController::class, 'corDesassociar'])->middleware('auth');
 Route::post('/cadeiras/atualizar/{id}', [App\Http\Controllers\CadeiraController::class, 'updateAction'])->middleware('auth');
 Route::delete( '/cadeiras/delete/{id}', [App\Http\Controllers\CadeiraController::class, 'destroy'] )->middleware('auth');
+
+//Representantes
+Route::get('/representantes', [App\Http\Controllers\RepresentanteController::class, 'index'])->middleware('auth');
+Route::get('/representantes/novo', [App\Http\Controllers\RepresentanteController::class, 'novo'])->middleware('auth');
+Route::post('/representantes/novo', [App\Http\Controllers\RepresentanteController::class, 'store'])->middleware('auth');
+Route::get('/representantes/editar/{id}', [App\Http\Controllers\RepresentanteController::class, 'editar'])->middleware('auth');
+Route::get('/representantes/atualizar/{id}', [App\Http\Controllers\RepresentanteController::class, 'update'])->middleware('auth');
+Route::post('/representantes/atualizar/{id}', [App\Http\Controllers\RepresentanteController::class, 'updateAction'])->middleware('auth');
+Route::delete( '/representantes/delete/{id}', [App\Http\Controllers\RepresentanteController::class, 'destroy'] )->middleware('auth');

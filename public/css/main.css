@@ -9,6 +9,27 @@
     background-color: #fff;
     color: #1d1d1b;
 }
+
+.btn-tamanhos{
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #0c897285;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #0005;
+    transition: .2s;
+    color: #fff;
+    text-shadow: 1px 1px 2px #0009;
+}
+.btn-tamanhos:hover{
+    transform: scale(1.1);
+    background-color: #0009;
+}
+.active{
+    transform: scale(1.1);
+    background-color: #0009;
+}
 .body {
     max-height: 100vh;
     overflow: hidden;
@@ -119,15 +140,62 @@ a {
     margin: auto;
 }
 
-/* area do modal */
-
-.area-modal{
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding-top: 10%;
+.mapa-area{
+    margin:auto;
+    background-image: url('/img/statics/regioes.png');
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.regiao-container{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 50%;
+}
+.regiao{
+    width: 50%;
+}
+.regiao h3{
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: .3s;
     background-color: #0008;
-    display: none;
+    padding: 5px 30px;
+}
+.regiao h3:hover{
+    transform: scale(1.1);
+}
+.norte{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.nordeste{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.centro-oeste{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.sudeste{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.sul{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 @media (min-width: 991px){
@@ -151,6 +219,20 @@ a {
     }
 }
 
+@media (max-width: 500px){
+    .regiao-container{
+        height: 70%;
+        width: 100%;
+    }
+    .regiao{
+        width: 50%;
+    }
+    .sul{
+        width: 100%;
+
+    }
+}
+
 @media(max-width: 991px) {
     .cards-container {
         overflow-x: scroll;
@@ -166,5 +248,6 @@ a {
         height: auto;
         overflow: scroll;
     }
+
 
 }

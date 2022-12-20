@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vitrine;
 use App\Models\Base;
+use App\Models\Representante;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -58,5 +59,16 @@ class SiteController extends Controller
 
     public function imprimir(){
         return view('site.imprimir');
+    }
+
+    public function regiao(){
+        return view('site.regiao');
+    }
+
+    public function representantes($regiao){
+        $representantes = Representante::where('regiao', '=', $regiao)->get();
+        return view('site.representantes', [
+            'representantes' => $representantes
+        ]);
     }
 }

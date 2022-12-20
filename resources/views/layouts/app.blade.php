@@ -62,8 +62,12 @@
                                     <a href="/cadeiras" class="nav-link">Cadeiras</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="/representantes" class="nav-link">Representante</a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="/register" class="nav-link">Novo Usuário</a>
                                 </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

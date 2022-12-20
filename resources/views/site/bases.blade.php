@@ -20,7 +20,7 @@
                         <h3 id="nome-base-area" class="display-4"></h3>
                     </div>
                     {{-- area da imagem principal --}}
-                    <img id="base" class="img-fluid " src="/img/statics/base.gif" alt="imagem da base">
+                    <img id="img-base-area" class="img-fluid " src="/img/statics/base.gif" alt="imagem da base">
                 </div>
 
             </div>

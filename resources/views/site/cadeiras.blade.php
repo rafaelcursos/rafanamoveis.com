@@ -19,7 +19,7 @@
                 <div class="image-primary">
                     <div class="row p-0">
                         <div class="col-9">
-                            <img id="tampo" class="img-fluid " src="" alt="imagem do tampo">
+                            <img id="tampo-cadeira" class="img-fluid " src="" alt="imagem do tampo">
                             <img id="base" class="img-fluid " src="" alt="imagem da base">
                         </div>
                         <div class="col-3">

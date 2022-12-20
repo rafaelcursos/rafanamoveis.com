@@ -14,15 +14,26 @@
 
             {{-- primeira coluna reservada para a imagem principal --}}
             <div class="col-lg-9 mb-5 m-0 p-0">
-                <div class="text-center">
+                {{-- <div class="text-center">
                     <h5 class="display-5">Dimenções do Tampo</h5>
                     <h3 id="tampoTamanho"></h3>
-                </div>
-                {{-- coluna reservada para imagem --}}
-                <div class="image-primary">
-                    {{-- area da imagem principal --}}
-                    <img id="tampo" class="img-fluid " src="/img/statics/tampo.gif" alt="imagem do tampo">
-                    <img id="base" class="img-fluid " src="" alt="imagem da base">
+                </div> --}}
+
+                <div class="row">
+                    <div class="col-10">
+                        {{-- coluna reservada para imagem --}}
+                        <div class="image-primary">
+                            {{-- area da imagem principal --}}
+                            <img id="img-tampo-area" class="img-fluid " src="/img/statics/tampo.gif" alt="imagem do tampo">
+                            <img id="img-base-area" class="img-fluid " src="" alt="imagem da base">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <h5>Tampo</h5>
+                        <p id="nome-tampo-area"></p><hr>
+                        <h5>Tamanho:</h5>
+                        <h6 id="tampo-tamanho"></h6>
+                    </div>
                 </div>
             </div>
 
@@ -30,24 +41,21 @@
                 <div class="row ">
                     <div class="cards-container">
                         @foreach ($tampos as $t)
-                            <div 
-                                class="cards">
+                            <div class="cards">
                                 <div class="img-card ">
-                                    <img class="img-fluid py-2" src="{{ Storage::url($t->imagem) }}" alt="">
-                                    <div style="border: 1px solid #ddd; width: 100%;" onclick="trocatampo(`{{ Storage::url($t->imagem) }}`, `{{ $t->nome }}`, `{{ $t->descricao }}`)">
+                                    <img class="img-fluid py-3" src="{{ Storage::url($t->imagem) }}" alt="">
+                                    <div
+                                        onclick="trocatampo(`{{ Storage::url($t->imagem) }}`, `{{ $t->nome }}`, `{{ $t->descricao }}`)">
                                         <div class="row">
-                                            <div class="col-4 py-2">
-                                                <h5 class="p-2">Tamanhos</h5>
+                                            <div class="col-5">
+                                                <h5>Tamanhos</h5>
                                             </div>
-                                            <div class="col-8 py-2 text-center">
+                                            <div class="col-7 text-center">
                                                 @foreach ($t->tamanhos as $tamanho)
-                                                    <span style="cursor: pointer;"
-                                                        onclick="setTamanho(`{{ $tamanho->altura }}`, `{{ $tamanho->largura }}`, `{{ $tamanho->comprimento }}`)"
-                                                        >
-                                                         {{ $tamanho->largura }} X {{ $tamanho->comprimento }}
-                                                         <button class="btn btn-success btn-sm my-1">Clique</button>
-                                                    </span>
-                                                    <br>
+                                                    <p onclick="setTamanho(`{{ $tamanho->altura }}`, `{{ $tamanho->largura }}`, `{{ $tamanho->comprimento }}`, this)"
+                                                        class="btn-tamanhos">
+                                                        {{ $tamanho->largura }} X {{ $tamanho->comprimento }}
+                                                    </p>
                                                 @endforeach
                                             </div>
                                         </div>
