@@ -22,7 +22,12 @@ let comprimentoTampo = localStorage.getItem('comprimento');
 
 // cadeiras
 let imgCadeiraArea = document.getElementById('img-cadeira-area');
+let nomeCadeiraArea = document.getElementById('nome-cadeira-area');
+let descricaoCadeiraArea = document.getElementById('descricao-cadeira-area');
+
 let imgCadeira = localStorage.getItem('imgCadeira');
+let nomeCadeira = localStorage.getItem('nameCadeira');
+let descricaoCadeira = localStorage.getItem('descriptionCadeira');
 
 // imprimir
 

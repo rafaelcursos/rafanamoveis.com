@@ -48,8 +48,8 @@
                 </div>
 
                 <div class="col-md-6 mb-3 mt-3">
-                    <h2 id="reportNameCadeira"></h2>
-                    <p id="reportDescriptionCadeira"></p>
+                    <h2 id="nome-cadeira-area"></h2>
+                    <p id="descricao-cadeira-area"></p>
                 </div>
             </div>
             <a href="/site/regiao"
